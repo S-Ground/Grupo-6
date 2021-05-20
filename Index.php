@@ -6,17 +6,15 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Smart Ground</title>
-        <!-- Favicon-->
+        
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
+    
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
+        <!-- LETRAS -->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+       
+       <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navegacion -->
@@ -28,8 +26,7 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Acerca de nosotros</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.php">Iniciar sesión</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="controlador/login.php">Iniciar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +61,7 @@
                         <br>
                         <br>
                         <br>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Empecemos!</a>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Sigamos!</a>
                     </div>
                 </div>
             </div>
@@ -108,12 +105,12 @@
                 </div>
                 <br><br><br>
                 <div class="row justify-content-center">
-                <a class="btn btn-primary btn-xl " href="login.php">Iniciar sesión</a>
+                <a class="btn btn-primary btn-xl " href="controlador/login.php">Iniciar sesión</a>
                 </div>
             </div>
         </section>
     
-        <!-- Footer-->
+        <!-- final-->
         <footer class="bg-light py-5">
             <div class="container">
                 <div class="small text-center text-muted">
@@ -124,13 +121,11 @@
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
+        <!-- Bootstrap-->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>
