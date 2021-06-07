@@ -1,5 +1,7 @@
 version: '2'
 services:
+
+    #Problemas con mysql
   mysql:
     container_name: mysql 
     restart: always
