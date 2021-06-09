@@ -3,17 +3,16 @@
 //inicio de sesion 
 
 session_start();
-$usuario=$_SESSION['username'];
+$usuario = $_SESSION['username'];
 //Sin acceso a sesion, lo devuelve a login.php
 
 
-if(!isset($usuario)){
-    header("location: ../controlador/login.php");
+if (!isset($usuario)) {
+  header("location: ../controlador/login.php");
+} else {
 
-}else{
-
-//boton de deslogear
- "<a href='../controlador/salir.php'>SALIR</a>";
+  //boton de deslogear
+  "<a href='../controlador/salir.php'>SALIR</a>";
 }
 
 ?>
@@ -23,145 +22,113 @@ if(!isset($usuario)){
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sensores</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
+  <!-- Letras -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-
-  
-  <!-- responsvie -->
-  
-  <!-- Icons -->
-  
+  <!-- Iconos -->
   <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="../css/cards.css" >
+  <link rel="stylesheet" href="./assets/css/cards.css">
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
 <body>
 
- <!-- TESTTTTT -->
- <!-- Sidenav -->
- <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-     
-        <!-- Collapse -->
-     
-          <!-- Nav items -->
-         
-          <!-- Divider -->
-          <hr class="my-3">
-         
-          <!-- Navigation -->
-          <ul class="navbar-nav mb-md-3">
-            <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
-                <i class="ni ni-spaceship"></i>
-                <span class="nav-link-text">Getting started</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
-                <i class="ni ni-palette"></i>
-                <span class="nav-link-text">Foundation</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
-                <i class="ni ni-ui-04"></i>
-                <span class="nav-link-text">Components</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
-                <i class="ni ni-chart-pie-35"></i>
-                <span class="nav-link-text">Plugins</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active active-pro" href="upgrade.html">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Upgrade to PRO</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <!-- Separador  -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  </nav>
+
+  <!--tarjetas -->
+  <div class="main-content" id="panel">
+
+    <!--boton barra-->
+    <div id="sidebar2">
+      <div class="toggle-btn">
+        <span>&#9776;</span>
       </div>
     </div>
-  </nav>
-  <!-- Main content -->
- 
-   <!--tarjetas --> 
-    <div class="main-content"id="panel">
-    
+    <br>
 
-<br>
 
-<div class="row">
-  <div class="column">
-    <div class="card">
-    <img class="align-items-center " src="./assets/img/humedad.png" style="width:40%">
-    <h3>Humedad</h3>
-      <p>Some text</p>
+    <div class="row justify-content-center" ">
+
+
+  <div class=" col-sm-5" id="humedad" >
+      <div class="card">
+        <img class="align-items-center " src="./assets/img/humedad.png" style="width:30%">
+        <h3>Humedad</h3>
+        <p>Some text</p>
+      </div>
+    </div>
+
+    <div class="col-sm-5  ">
+      <div class="card">
+        <img class="align-items-center " src="./assets/img/temp.png" style="width:30%">
+        <h3>Temperatura</h3>
+        <p>Some text</p>
+      </div>
+    </div>
+    <br>
+    <div class="col-sm-5">
+      <div class="card">
+        <img class="align-items-center " src="./assets/img/acidez.png" style="width:30%">
+        <h3>pH</h3>
+        <p>Some text</p>
+      </div>
+    </div>
+
+
+    <div class="col-sm-5 ">
+      <div class="card  ">
+        <img class="align-items-center " src="./assets/img/atmosf.png" style="width:30%">
+        <h3>Presión atmosférica</h3>
+        <p>Some text</p>
+      </div>
+    </div>
+    <div class="col-sm-5 ">
+      <div class="card  ">
+        <img class="align-items-center " src="./assets/img/uv.png" style="width:30%">
+        <h3>Radiación ultravioleta</h3>
+        <p>Some text</p>
+      </div>
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-    <img class="align-items-center " src="./assets/img/temp.png" style="width:40%">
-      <h3>Temperatura</h3>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-    <img class="align-items-center " src="./assets/img/acidez.png" style="width:40%">
-      <h3>pH</h3>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-    <img class="align-items-center " src="./assets/img/atmosf.png" style="width:40%">
-      <h3>Presión atmosférica</h3>
-      <p>Some text</p>
-    </div>
-  </div>
-</div>
-</div>
-
- <!-- TESTTTT -->
+  <!-- TESTTTT -->
 
 
 
- 
+
+
+
+
+
   <!-- Sidenav -->
+
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
+
+
+        <div class="main-content" id="panel">
+
+
+
+        </div>
         <a class="navbar-brand" href="javascript:void(0)">
-        <img src="assets/img/brand/logo.png" width=60" height="200" alt="...">
+          <img src="assets/img/brand/logo.png" width=60" height="200" alt="...">
         </a>
       </div>
-      <div class="navbar-inner">
-   
 
-        <!-- Collapse -->
+      <div class="navbar-inner">
+        <!-- Barra lateral -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
+          <!-- Secciones de navegacion-->
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" href="index.php">
@@ -181,18 +148,9 @@ if(!isset($usuario)){
                 <span style="color: #000000" class="nav-link-text">Configuracion</span>
               </a>
             </li>
-
-            
-
-
-  
-          <!-- Navigation -->
-          
-          
             <li class="nav-item">
-              
               <a class="nav-link active active-pro" href='../controlador/salir.php'>
-              
+
                 <i class="ni ni-user-run text-dark"></i>
                 <span class="nav-link-text">Salir</span>
               </a>
@@ -202,22 +160,25 @@ if(!isset($usuario)){
       </div>
     </div>
 
-    
- 
 
-  <!-- Core -->
-  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../js/cards.js"></script>
-  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Optional JS -->
-  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-  <!-- Argon JS -->
-  <script src="assets/js/argon.js?v=1.2.0"></script>
-   <!-- responsive -->
+
+
+    <!-- Core -->
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../js/cards.js"></script>
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Optional JS -->
+    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="assets/js/argon.js?v=1.2.0"></script>
+    <!-- responsive -->
 </body>
 
 </html>
+
+
+<button id="buttomhum" onclick="ShowHideElements()" >Ocultar humedad</button>

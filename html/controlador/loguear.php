@@ -15,10 +15,13 @@ $array=mysqli_fetch_array($consulta);
 
 
 if($array['contar']>0){
+    //seesion de usuario
     $_SESSION['username']=$usuario;
+    //dirige hacia pagina principal de usuario
     header("location: ../app/index.php");
 }else{
     echo "<br>";
+    //vuelve a slicitar inicio de sesion 
     header("location: ../controlador/login.php");
 }
 ?>
