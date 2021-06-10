@@ -5,12 +5,9 @@
 session_start();
 $usuario = $_SESSION['username'];
 //Sin acceso a sesion, lo devuelve a login.php
-
-
 if (!isset($usuario)) {
   header("location: ../controlador/login.php");
 } else {
-
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
@@ -33,42 +30,74 @@ if (!isset($usuario)) {
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="./assets/css/bar.css">
 </head>
 
 <body>
 
-  <!-- Separador  -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-  </nav>
+<!-- barra lateral-->
+<nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
+<div class="nav-item">
+  <div >
+  <br>    
+    <ul>
+    <!--Consulta a base de datos por usuario-->
+<?php
+echo "<h1>BIENVENIDO $usuario</h1> ";
+?>
+<br><br>
+          <span class="nav-item">
+            <a class="nav-link active" href="index.php">
+              <i class="ni ni-tv-2 text-primary"></i>
+              <span class="nav-link-text">Sensores</span>
+            </a>
+          </span>
+          <br>
+          <span class="nav nav">
+            <a class="nav-link active" href="histograma.php">
+              <i class="ni ni-chart-pie-35 text-green"></i>
+              <span class="nav-link-text">Histograma</span>
+            </a>
+          </span>
+          <br>
+          <span class="nav nav">
+            <a class="nav-link active" href="conf.php">
+              <i class="ni ni-settings-gear-65 text-default"></i>
+              <span class="nav-link-text">Configuracion</span>
+            </a>
+          </span>
+          <br>
+        <!-- salir de sesion -->
+          <span class="nav-item">
+                          <a class="active active-pro" href='../controlador/salir.php'>
+                            <i class="ni ni-user-run"></i>
+              <span class="nav-link-text">Salir</span>
+            </a>
+          </span>
+    </ul>
+  </div>
+</div>
 
+
+  </nav>
   <!--tarjetas -->
   <div class="main-content" id="panel">
-
-    <!--boton barra-->
-    <div id="sidebar2">
-      <div class="toggle-btn">
-        <span>&#9776;</span>
-      </div>
-    </div>
-    <br>
-
-
+    <!--Paneles de informacion (humedad, temperatura, pH, Presion atmosferica, radiacion UV)-->
     <div class="row justify-content-center" ">
-
-
-  <div class=" col-sm-5" id="humedad" >
+    
+  <div class=" col-sm-5" id="humedad" ><br>
+  
       <div class="card">
         <img class="align-items-center " src="./assets/img/humedad.png" style="width:30%">
         <h3>Humedad</h3>
-        <p>Some text</p>
+        <p>30%</p>
       </div>
     </div>
-
-    <div class="col-sm-5  ">
+    <div class="col-sm-5  "><br>
       <div class="card">
         <img class="align-items-center " src="./assets/img/temp.png" style="width:30%">
         <h3>Temperatura</h3>
-        <p>Some text</p>
+        <p>34°C</p>
       </div>
     </div>
     <br>
@@ -76,89 +105,34 @@ if (!isset($usuario)) {
       <div class="card">
         <img class="align-items-center " src="./assets/img/acidez.png" style="width:30%">
         <h3>pH</h3>
-        <p>Some text</p>
+        <p>6</p>
       </div>
     </div>
-
-
     <div class="col-sm-5 ">
       <div class="card  ">
         <img class="align-items-center " src="./assets/img/atmosf.png" style="width:30%">
         <h3>Presión atmosférica</h3>
-        <p>Some text</p>
+        <p>0,1 Pascales</p>
       </div>
     </div>
     <div class="col-sm-5 ">
       <div class="card  ">
         <img class="align-items-center " src="./assets/img/uv.png" style="width:30%">
         <h3>Radiación ultravioleta</h3>
-        <p>Some text</p>
+        <p>3 UV</p>
       </div>
     </div>
+    
+
+  <!--Barra lateral de informacion -->
+
+  
+
   </div>
 
+
+
   <!-- TESTTTT -->
-
-
-
-
-
-
-
-
-  <!-- Sidenav -->
-
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-
-
-        <div class="main-content" id="panel">
-
-
-
-        </div>
-        <a class="navbar-brand" href="javascript:void(0)">
-          <img src="assets/img/brand/logo.png" width=60" height="200" alt="...">
-        </a>
-      </div>
-
-      <div class="navbar-inner">
-        <!-- Barra lateral -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Secciones de navegacion-->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.php">
-                <i class="ni ni-tv-2 text-primary"></i>
-                <span style="color: #000000" class="nav-link-text">Sensores</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="histograma.php">
-                <i class="ni ni-chart-pie-35 text-green"></i>
-                <span style="color: #000000" class="nav-link-text">Histograma</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="conf.php">
-                <i class="ni ni-settings-gear-65 text-default"></i>
-                <span style="color: #000000" class="nav-link-text">Configuracion</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active active-pro" href='../controlador/salir.php'>
-
-                <i class="ni ni-user-run text-dark"></i>
-                <span class="nav-link-text">Salir</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
 
 
@@ -175,10 +149,10 @@ if (!isset($usuario)) {
     <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="assets/js/argon.js?v=1.2.0"></script>
-    <!-- responsive -->
+    <!-- barra -->
+    <script src="./assets/js/bar.js"></script>
 </body>
 
 </html>
 
 
-<button id="buttomhum" onclick="ShowHideElements()" >Ocultar humedad</button>

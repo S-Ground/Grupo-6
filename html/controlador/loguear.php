@@ -21,6 +21,7 @@ if($array['contar']>0){
     header("location: ../app/index.php");
 }else{
     echo "<br>";
+   
     //vuelve a slicitar inicio de sesion 
     header("location: ../controlador/login.php");
 }

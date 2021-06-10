@@ -26,50 +26,49 @@ if(!isset($usuario)){
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 <body>
-  <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="javascript:void(0)">
-        <img src="assets/img/brand/logo.png" width=60" height="200" alt="...">
-        </a>
-      </div>
-      <div class="navbar-inner">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.php">
-                <i class="ni ni-tv-2 text-primary"></i>
-                <span class="nav-link-text">Sensores</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="histograma.php">
-                <i class="ni ni-chart-pie-35 text-green"></i>
-                <span class="nav-link-text">Histograma</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="conf.php">
-                <i class="ni ni-settings-gear-65 text-default"></i>
-                <span class="nav-link-text">Configuracion</span>
-              </a>
-            </li>
-  
-          <!-- Navigation -->
-            <li class="nav-item">
-                            <a class="nav-link active active-pro" href='../controlador/salir.php'>
-                              <i class="ni ni-user-run"></i>
-                <span class="nav-link-text">Salir</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+ 
+<!-- barra lateral-->
+<nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
+<div class="nav-item">
+  <div >
+  <br>    
+    <ul>
+    <!--Consulta a base de datos por usuario-->
+<?php
+echo "<h1>BIENVENIDO $usuario</h1> ";
+?>
+<br><br>
+          <span class="nav-item">
+            <a class="nav-link active" href="index.php">
+              <i class="ni ni-tv-2 text-primary"></i>
+              <span class="nav-link-text">Sensores</span>
+            </a>
+          </span>
+          <br>
+          <span class="nav nav">
+            <a class="nav-link active" href="histograma.php">
+              <i class="ni ni-chart-pie-35 text-green"></i>
+              <span class="nav-link-text">Histograma</span>
+            </a>
+          </span>
+          <br>
+          <span class="nav nav">
+            <a class="nav-link active" href="conf.php">
+              <i class="ni ni-settings-gear-65 text-default"></i>
+              <span class="nav-link-text">Configuracion</span>
+            </a>
+          </span>
+          <br>
+        <!-- salir de sesion -->
+          <span class="nav-item">
+                          <a class="active active-pro" href='../controlador/salir.php'>
+                            <i class="ni ni-user-run"></i>
+              <span class="nav-link-text">Salir</span>
+            </a>
+          </span>
+    </ul>
+  </div>
+</div>
   <!-- Core -->
   <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
