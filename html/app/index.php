@@ -122,15 +122,8 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
         <p>3 UV</p>
       </div>
     </div>
-    
-
-  <!--Barra lateral de informacion -->
-
-  
-
   </div>
-
-
+  </div>
 
   <!-- TESTTTT -->
 

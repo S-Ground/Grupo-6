@@ -17,7 +17,6 @@ if (!isset($usuario)) {
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +32,7 @@ if (!isset($usuario)) {
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-
+  <link rel="stylesheet" href="./assets/css/bar.css">
 </head>
 
 <body>
@@ -81,23 +80,64 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
   </div>
 </div>
 
-        <!-- Core -->
-        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../js/cards.js"></script>
-        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-        <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-        <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-        <!-- Optional JS -->
-        <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-        <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-        <!-- Argon JS -->
-        <script src="assets/js/argon.js?v=1.2.0"></script>
-        <!-- conf -->
-        <script src="assets/js/jquery-3.6.0.js"></script>
-        <script src="assets/js/ocultar.js"></script>
-    
 
+  </nav>
+  <!--tarjetas -->
+  <div class="main-content" id="panel">
+    <!--Configuracion-->
+    <br>
+<div class="container" style="max-width: 650px; min-width: 400px;">
+  <div class="card">
+    <h2 class="card-header text-center">Modificar estado de sensores</h2>
+    <div class="card-body">
+      <form id="myForm" onsubmit="return validar()">
+        <div class="form-group">
+
+          <label for="user">Humedad:</label>
+          <input type="text" class="form-control" id="user" placeholder="Usuario">
+
+          <label for="email">Correo Electronico:</label>
+          <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+
+          <label for="Pass1">Contraseña:</label>
+          <input type="password" class="form-control" id="pass1" placeholder="Contraseña">
+
+          <label for="pass2">Rep. Contraseña:</label>
+          <input type="password" class="form-control" id="pass2" placeholder="Repetir Contraseña">
+          
+          <label for="codipos">Código Postal:</label>
+          <input type="text" class="form-control" id="codipos" placeholder="Codigo Postal">
+        </div>
+
+        <input type="submit" class="btn btn-success" id="boton" value="Registrar">
+        <input type="reset" class="btn btn-danger" id="boton" value="Reiniciar">
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <!-- TESTTTT -->
+
+
+
+
+    <!-- Core -->
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../js/cards.js"></script>
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Optional JS -->
+    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="assets/js/argon.js?v=1.2.0"></script>
+    <!-- barra -->
+    <script src="./assets/js/bar.js"></script>
 </body>
 
 </html>
+
+
