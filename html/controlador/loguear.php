@@ -3,6 +3,9 @@
 require 'db.php';
 session_start();
 //definicion de variables para login
+
+
+
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
 

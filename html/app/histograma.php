@@ -1,7 +1,13 @@
 <?php
 //inicio de sesion 
+require '../controlador/db.php';
+
 session_start();
 $usuario=$_SESSION['username'];
+
+
+
+
 //Sin acceso a sesion, lo devuelve a login.php
 if(!isset($usuario)){
     header("location: ../controlador/login.php");
@@ -26,7 +32,6 @@ if(!isset($usuario)){
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 <body>
- 
 <!-- barra lateral-->
 <nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
 <div class="nav-item">
@@ -69,6 +74,29 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
     </ul>
   </div>
 </div>
+
+
+  </nav>
+  <!--tarjetas -->
+  <div class="main-content" id="panel">
+    <!--Hisogramas -->
+    xdd
+
+
+
+
+    <?php
+echo "<h1> $sql</h1> ";
+?>
+
+
+
+
+
+
+
+
+
   <!-- Core -->
   <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -80,5 +108,10 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="assets/js/argon.js?v=1.2.0"></script>
+  <script src="./assets/js/jquery-3.6.0.js"></script>
+  <!--grafico-->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> 
 </body>
 </html>

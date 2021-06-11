@@ -79,20 +79,32 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
 </div>
 
 
+
+
+
+
   </nav>
   <!--tarjetas -->
   <div class="main-content" id="panel">
     <!--Paneles de informacion (humedad, temperatura, pH, Presion atmosferica, radiacion UV)-->
     <div class="row justify-content-center" ">
     
-  <div class=" col-sm-5" id="humedad" ><br>
-  
+
+
+    <input type="button" id="botonocultamuestra" value="Mostrar div""/>
+
+  <div class=" col-sm-5" id="divocultamuestra" ><br>
       <div class="card">
         <img class="align-items-center " src="./assets/img/humedad.png" style="width:30%">
         <h3>Humedad</h3>
         <p>30%</p>
       </div>
     </div>
+
+
+
+
+
     <div class="col-sm-5  "><br>
       <div class="card">
         <img class="align-items-center " src="./assets/img/temp.png" style="width:30%">
@@ -144,6 +156,8 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
     <script src="assets/js/argon.js?v=1.2.0"></script>
     <!-- barra -->
     <script src="./assets/js/bar.js"></script>
+    
+    <script src="./assets/js/ocultar.js"></script>
 </body>
 
 </html>
