@@ -30,6 +30,7 @@ if(!isset($usuario)){
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  
 </head>
 <body>
 <!-- barra lateral-->
@@ -74,26 +75,67 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
     </ul>
   </div>
 </div>
-
-
   </nav>
-  <!--tarjetas -->
+
+
+
+<!--Hisogramas -->
   <div class="main-content" id="panel">
-    <!--Hisogramas -->
-    xdd
+  
+<canvas id="myChart" style="position: relative; height: 30vh; width: 120vw;"></canvas>
+  <br>
+<div>
+<canvas id="myChart" style="position: relative; height: 30vh; width: 120vw;"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myChart')
+
+    var myChart = new Chart(ctx, {
+        type:'line',
+        data:{
+            datasets: [{
+                label: 'Humedad',
+                backgroundColor: ['#6bf1ab','#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
+                borderColor: ['black'],
+                borderWidth:1
+            }]
+        },
+        options:{
+            scales:{
+                y:{
+                    beginAtZero:true
+                }
+            }
+        }
+    })
+
+    let url = 'http://localhost:3000/api/datos'
+    fetch(url)
+        .then( response => response.json() )
+        .then( datos => mostrar(datos) )
+        .catch( error => console.log(error) )
+
+
+    const mostrar = (articulos) =>{
+        articulos.forEach(element => {
+            myChart.data['labels'].push(element.fecha)
+            myChart.data['datasets'][0].data.push(element.temperatura)
+        });
+        console.log(myChart.data)
+    }    
+</script>
+
+</div>
+<br>
+<!-- Histograma 2 -->
 
 
 
 
-    <?php
-echo "<h1> $sql</h1> ";
-?>
 
 
-
-
-
-
+  </div>
+xD
 
 
 
