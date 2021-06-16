@@ -91,9 +91,7 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
     
 
 
-    <input type="button" id="botonocultamuestra" value="Mostrar div""/>
-
-  <div class=" col-sm-5" id="divocultamuestra" ><br>
+  <div class=" col-sm-5" ><br>
       <div class="card">
         <img class="align-items-center " src="./assets/img/humedad.png" style="width:30%">
         <h3>Humedad</h3>
@@ -139,7 +137,7 @@ echo "<h1>BIENVENIDO $usuario</h1> ";
 
   <!-- TESTTTT -->
 
-
+  
 
 
     <!-- Core -->
