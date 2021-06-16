@@ -112,7 +112,7 @@ if (!isset($usuario)) {
               }
             })
             //Llamamos a la api para poder obtener los datos 
-            let url = 'http://localhost/grupo-6/apirest_php/datos.php'
+            let url = 'http://localhost/apirest_php/datos.php'
             fetch(url)
               .then(response => response.json())
               .then(datos => mostrar(datos))
@@ -159,7 +159,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url1 = 'http://localhost/grupo-6/apirest_php/datos.php'
+            let url1 = 'http://localhost/apirest_php/datos.php'
             fetch(url1)
               .then(response => response.json())
               .then(datos1 => mostrar1(datos1))
@@ -206,7 +206,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url2 = 'http://localhost/grupo-6/apirest_php/datos.php'
+            let url2 = 'http://localhost/apirest_php/datos.php'
             fetch(url2)
               .then(response => response.json())
               .then(datos2 => mostrar2(datos2))
@@ -255,7 +255,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url3 = 'http://localhost/grupo-6/apirest_php/datos.php'
+            let url3 = 'http://localhost/apirest_php/datos.php'
             fetch(url3)
               .then(response => response.json())
               .then(datos3 => mostrar3(datos3))
@@ -304,7 +304,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url4 = 'http://localhost/grupo-6/apirest_php/datos.php'
+            let url4 = 'http://localhost/apirest_php/datos.php'
             fetch(url4)
               .then(response => response.json())
               .then(datos4 => mostrar4(datos4))

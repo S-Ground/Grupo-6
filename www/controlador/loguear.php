@@ -1,6 +1,6 @@
 <?php
 //inicio conexion a base de datos
-require 'db.php';
+include "db.php";
 session_start();
 //definicion de variables para login
 
@@ -8,7 +8,7 @@ session_start();
 
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
-
+    
 
 //consulta a la base de datos
 $q="SELECT   COUNT(*) as contar from usuarios WHERE usuario='$usuario'and clave='$clave'";
