@@ -5,15 +5,17 @@
 session_start();
 $usuario = $_SESSION['username'];
 //Sin acceso a sesion, lo devuelve a login.php
+
+
 if (!isset($usuario)) {
   header("location: ../controlador/login.php");
 } else {
+
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -25,11 +27,11 @@ if (!isset($usuario)) {
   <!-- Letras -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Iconos -->
-  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/cards.css">
-  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
 </head>
 
@@ -46,31 +48,31 @@ if (!isset($usuario)) {
 echo "<h1>BIENVENIDO $usuario</h1> ";
 ?>
 <br><br>
-          <span class="nav-item">
+<span class="nav-item">
             <a class="nav-link active" href="index.php">
-              <i class="ni ni-tv-2 text-primary"></i>
+              <i class="fas fa-tv text-primary"></i>
               <span class="nav-link-text">Sensores</span>
             </a>
           </span>
           <br>
           <span class="nav nav">
             <a class="nav-link active" href="histograma.php">
-              <i class="ni ni-chart-pie-35 text-green"></i>
+              <i class="fas fa-chart-pie text-green"></i>
               <span class="nav-link-text">Histograma</span>
             </a>
           </span>
           <br>
           <span class="nav nav">
             <a class="nav-link active" href="conf.php">
-              <i class="ni ni-settings-gear-65 text-default"></i>
+              <i class="fas fa-cogs text-default"></i>
               <span class="nav-link-text">Configuracion</span>
             </a>
           </span>
           <br>
-        <!-- salir de sesion -->
+          <!-- salir de sesion -->
           <span class="nav-item">
-                          <a class="active active-pro" href='../controlador/salir.php'>
-                            <i class="ni ni-user-run"></i>
+            <a class="active active-pro" href='../controlador/salir.php'>
+              <i class="fas fa-sign-out-alt"></i>
               <span class="nav-link-text">Salir</span>
             </a>
           </span>

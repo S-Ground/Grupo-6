@@ -19,3 +19,4 @@ echo "<a href='../controlador/salir.php'>SALIR</a>";
 
 ?>
 
+ola

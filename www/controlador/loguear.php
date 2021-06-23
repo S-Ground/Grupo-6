@@ -1,6 +1,6 @@
 <?php
 //inicio conexion a base de datos
-include "db.php";
+require 'db.php';
 session_start();
 //definicion de variables para login
 
@@ -8,7 +8,7 @@ session_start();
 
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
-    
+
 
 //consulta a la base de datos
 $q="SELECT   COUNT(*) as contar from usuarios WHERE usuario='$usuario'and clave='$clave'";
@@ -26,6 +26,8 @@ if($array['contar']>0){
     echo "<br>";
    
     //vuelve a slicitar inicio de sesion 
-    header("location: ../controlador/login.php");
+    header("location: ../controlador/login.php?error=true");
 }
+
+
 ?>
