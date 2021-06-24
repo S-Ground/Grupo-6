@@ -1,5 +1,5 @@
 # Grupo-6
-Manuel Quezada- Jorge Riquelme -Gustavo Igor
+ Jorge Riquelme - Gustavo Igor - Manuel Quezada
 
 
 # Es necesario una instalacion previa de docker para poder ejecutar los comandos
@@ -22,3 +22,5 @@ Podemos parar y borrar todos los contenedores de una vez.
   docker-compose down
 ```
 
+#Observacion:
+Es necesario ingresar al localhost phpmyadmin para crear la base de datos "php_login_database"

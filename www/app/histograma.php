@@ -1,38 +1,36 @@
 <?php
-
 //inicio de sesion 
+require '../controlador/db.php';
 
 session_start();
 $usuario = $_SESSION['username'];
+
+
+
+
 //Sin acceso a sesion, lo devuelve a login.php
-
-
 if (!isset($usuario)) {
   header("location: ../controlador/login.php");
 } else {
-
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
-
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Sensores</title>
+  <title>Histograma</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
-  <!-- Letras -->
+  <!-- letra -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Iconos -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./assets/css/cards.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-  <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
@@ -42,7 +40,6 @@ if (!isset($usuario)) {
       <div>
         <br>
         <ul>
-          <!--Consulta a base de datos por usuario-->
           <?php
           echo "<h1>BIENVENIDO $usuario</h1> ";
           ?>
@@ -78,30 +75,33 @@ if (!isset($usuario)) {
         </ul>
       </div>
     </div>
+
   </nav>
-
-
   <!--Hisogramas -->
-  <div class="main-content"> <br>
-    <div class="container" style="max-width: 1200px; min-width: 400px;">
+  <div class="main-content" id="panel"> <br>
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
         <div class="card-body">
           <!--Se establece id al canvas para trabajarlo y mostrar lo que sea necesario -->
           <canvas id="myChart" style="position: relative; height: 25vh; width: 80vw;"></canvas>
-          <!--Script de chartjs.org que nos entrega los graficos -->
+          <!--repositorio de chartjs.org que nos entrega los graficos -->
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!--Script de grafico -->
+          <!--Script de grafico -->
           <script>
+
             var ctx = document.getElementById('myChart').getContext('2d');
-            //Se establecen los parametros para el grafico
+            
             var myChart = new Chart(ctx, {
+              //Se establecen los parametros para el grafico
               type: 'line',
               data: {
                 datasets: [{
                   label: 'Humedad',
                   backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
                   borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 2
+                  borderWidth: 1.5,
+                  radius: 1.5
+
                 }]
               },
               options: {
@@ -112,8 +112,9 @@ if (!isset($usuario)) {
                 }
               }
             })
+            
             //Llamamos a la api para poder obtener los datos 
-            let url = 'http://localhost/apirest_php/datos.php'
+            let url =  'http://localhost/apirest_php/datos.php'
             fetch(url)
               .then(response => response.json())
               .then(datos => mostrar(datos))
@@ -127,7 +128,9 @@ if (!isset($usuario)) {
                 myChart.update();
               });
               console.log(myChart.data)
+              
             };
+          
           </script>
 
         </div>
@@ -136,7 +139,7 @@ if (!isset($usuario)) {
 
     <!--Histograma 2-->
 
-    <div class="container" style="max-width: 1200px; min-width: 400px;">
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
         <div class="card-body">
           <canvas id="myChart1" style="position: relative; height: 25vh; width: 80vw;"></canvas>
@@ -149,7 +152,8 @@ if (!isset($usuario)) {
                   label: 'Temperatura',
                   backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
                   borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 2
+                  borderWidth: 1.5,
+                  radius: 1.5
                 }]
               },
               options: {
@@ -183,7 +187,7 @@ if (!isset($usuario)) {
 
     <!--Histograma 3-->
 
-    <div class="container" style="max-width: 1200px; min-width: 400px;">
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
         <div class="card-body">
           <canvas id="myChart2" style="position: relative; height: 25vh; width: 80vw;"></canvas>
@@ -196,7 +200,8 @@ if (!isset($usuario)) {
                   label: 'pH',
                   backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
                   borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 2
+                  borderWidth: 1.5,
+                  radius: 1.5
                 }]
               },
               options: {
@@ -207,7 +212,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url2 = 'http://localhost/apirest_php/datos.php'
+            let url2 =  'http://localhost/apirest_php/datos.php'
             fetch(url2)
               .then(response => response.json())
               .then(datos2 => mostrar2(datos2))
@@ -232,7 +237,7 @@ if (!isset($usuario)) {
 
     <!--Histograma 4-->
 
-    <div class="container" style="max-width: 1200px; min-width: 400px;">
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
         <div class="card-body">
           <canvas id="myChart3" style="position: relative; height: 25vh; width: 80vw;"></canvas>
@@ -245,7 +250,8 @@ if (!isset($usuario)) {
                   label: 'Presion atmosferica',
                   backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
                   borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 2
+                  borderWidth: 1.5,
+                  radius: 1.5
                 }]
               },
               options: {
@@ -256,7 +262,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url3 = 'http://localhost/apirest_php/datos.php'
+            let url3 =  'http://localhost/apirest_php/datos.php'
             fetch(url3)
               .then(response => response.json())
               .then(datos3 => mostrar3(datos3))
@@ -267,7 +273,7 @@ if (!isset($usuario)) {
                 myChart3.data['labels'].push(element.fecha)
                 myChart3.data['datasets'][0].data.push(element.presion)
                 myChart3.update();
-                
+
               });
               console.log(myChart3.data)
 
@@ -281,7 +287,7 @@ if (!isset($usuario)) {
 
     <!--Histograma 5-->
 
-    <div class="container" style="max-width: 1200px; min-width: 400px;">
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
         <div class="card-body">
           <canvas id="myChart4" style="position: relative; height: 25vh; width: 80vw;"></canvas>
@@ -294,7 +300,8 @@ if (!isset($usuario)) {
                   label: 'Raduacion UV',
                   backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
                   borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 2
+                  borderWidth: 1.5,
+                  radius: 1.5
                 }]
               },
               options: {
@@ -305,7 +312,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url4 = 'http://localhost/apirest_php/datos.php'
+            let url4 =  'http://localhost/apirest_php/datos.php'
             fetch(url4)
               .then(response => response.json())
               .then(datos4 => mostrar4(datos4))
@@ -318,18 +325,66 @@ if (!isset($usuario)) {
                 myChart4.update();
               });
               console.log(myChart4.data)
-
-
             };
           </script>
         </div>
       </div>
     </div>
+
+    <!--Histograma de test-->
+
+    <div class="container" style="max-width: 1300px; min-width: 400px;">
+      <div class="card">
+        <div class="card-body">
+          <canvas id="myChart5" style="position: relative; height: 25vh; width: 80vw;"></canvas>
+          <script>
+            var ctx5 = document.getElementById('myChart5').getContext('2d');
+            var myChart5 = new Chart(ctx5, {
+              type: 'line',
+              data:  {
+                datasets: [{
+                  label: 'test radiacion UV',
+                  backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
+                  borderColor: 'rgb(75, 192, 192)',
+                  borderWidth: 1.5,
+                  radius: 1.5
+                }]
+              },
+              options: {
+                scales: {
+                  xAxes: [{
+                    type: 'realtime'
+                  }]
+                }
+              }
+            })
+            let url5 =  'http://localhost/apirest_php/datos.php'
+            fetch(url5)
+              .then(response => response.json())
+              .then(datos5 => mostrar5(datos5))
+              .catch(error => console.log(error))
+
+            const mostrar5 = (datos5) => {
+              datos5.forEach(element => {
+                myChart5.data['labels'].push(element.fecha)
+                myChart5.data['datasets'][0].data.push(element.uv)
+                myChart5.update();
+              });
+              console.log(myChart5.data)
+
+
+            };
+            
+            
+          </script>
+        </div>
+      </div>
+    </div>
+
+
     <!--Ultimo div panel-->
   </div>
 
-
-  
   <!--grafico-->
   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>

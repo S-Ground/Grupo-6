@@ -17,6 +17,7 @@ function permisos() {
 }
 permisos();
 $conexion =  Conectar($db);
+//solicitud get a travez de id
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     if (isset($_GET['id'])) {      
       $sql = $conexion->prepare("SELECT * FROM datos where id=:id");
@@ -26,17 +27,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
       echo json_encode($sql->fetch(PDO::FETCH_ASSOC));
       exit();
     }
-    else{      
-      $sql = $conexion->prepare("SELECT * FROM datos");
+    else{     
+      //Solicitud get de todos los datos, en este caso entregamos los ultimos 20 datos 
+      $sql = $conexion->prepare("SELECT * FROM ( SELECT * FROM datos ORDER BY id DESC LIMIT 20 ) sub ORDER BY id ASC");
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
       echo json_encode( $sql->fetchAll());
       exit();
     }
-}
+} //obtencion de datos a travez de metodo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if($_POST["lugar"]="home"){
+    //seleccionamos el id mas alto
+    $sql = $conexion->prepare("SELECT * FROM datos where id=(SELECT max(id) from datos)");
+    $sql->execute();
+    header("HTTP/1.1 200 OK");
+    echo json_encode($sql->fetch(PDO::FETCH_ASSOC));
+    exit();
+  }else{
     $input = $_POST;		
+    //seleccionamos todos los datos
     $sql = "INSERT INTO datos (fecha, temperatura, humedad, ph, presion, uv) VALUES (:fecha, :temperatura, :humedad, :ph, :presion, :uv)";		  
     $resultado = $conexion->prepare($sql);
     bindAllValues($resultado, $input);
@@ -48,7 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       echo json_encode($input);
       exit();
     }
+  }
 }
+//metodo put, nos permite actualizar datos
 if ($_SERVER['REQUEST_METHOD'] == 'PUT'){
     $input = $_GET;	
     $id = $input['id'];
@@ -60,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT'){
     header("HTTP/1.1 200 OK");
     exit();
 }
+//metodo delete, nos permite eliminar elementos en la tabla datos
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE'){
   $id = $_GET['id'];
   $resultado = $conexion->prepare("DELETE FROM datos where id=:id");
@@ -69,4 +83,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE'){
   exit();
 }
 header("HTTP/1.1 400 Peticion HTTP inexistente");
-?>
