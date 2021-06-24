@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 //inicio de sesion 
 
 session_start();

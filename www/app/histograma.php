@@ -1,20 +1,21 @@
 <?php
+ob_start();
 //inicio de sesion 
 require '../controlador/db.php';
 
 session_start();
+
 $usuario = $_SESSION['username'];
-
-
-
-
 //Sin acceso a sesion, lo devuelve a login.php
 if (!isset($usuario)) {
-  header("location: ../controlador/login.php");
+  header('location: ../controlador/login.php');
+
 } else {
+  
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
+
 ?>
 <!DOCTYPE html>
 <html>
