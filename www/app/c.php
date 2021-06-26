@@ -35,15 +35,11 @@ if (!isset($usuario)) {
   <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
   <!-- ocultar -->
-  <script src="../app/assets/js/ocultar.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script>
-      document.documentElement.classList.add('js');
-    </script>
-    <link rel="stylesheet" href="../app/assets/css/ocultar.css">
   
+
+  <script src="./assets/js/ocultar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 
@@ -99,40 +95,45 @@ if (!isset($usuario)) {
   <!--tarjetas -->
   <div class="main-content" id="panel">
 
-    <!--Configuracion-->
+    <!--Configuracion
+  
+  var status = localStorage.getItem('chkStatus');
+  -->
+
+<script>
+ $(document).ready(function() {
+  if (window.localStorage.getItem("div1") != null) {
+    var pb = window.localStorage.getItem("div1");
+    if (pb == "true") {
+      $(".div1").hide();
+    }
+  }
+
+  $("button").click(function() {
+    var v = $(".div1").is(":visible")
+    $(".div1").fadeToggle(500, "swing");
+    window.localStorage.setItem("div1", v)
+  });
+;
+</script>
+
+<div class="div1">Humedad es visible</div>
+
+<button>humedad</button>
 
 
-    <div class="alert">
-    <span class="closebtn">&times;</span>
-      Our office will be closed from Friday 23rd December and re-open Wednesday 11th January.
-    </div>
 
 
-    <p>
-      <a href="#">Clear storage</a>
-    </p>
 
-    <script>
-      const showMsg = localStorage.getItem('showMsg');
 
-      if(showMsg !== 'false'){
-        $('.alert').show();
-      }
 
-      $('.closebtn').on('click', function(){
-        $('.alert').fadeOut('slow');
-        localStorage.setItem('showMsg', 'false');
-      });
 
-      $('a').on('click', function(e){
-        e.preventDefault();
-        localStorage.setItem('showMsg', null);
-      });
-    </script>
+
+
+
 
 
   </div>
-
 </body>
 
 </html>

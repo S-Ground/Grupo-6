@@ -22,6 +22,7 @@ $ultimo_clima = end($info_clima);
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Sensores</title>
   <!-- Favicon -->
@@ -35,7 +36,11 @@ $ultimo_clima = end($info_clima);
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
   <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
+  <!-- ocultar localstorage -->
+  <script src="./assets/js/ocultar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
   <!-- barra lateral-->
   <nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
@@ -85,44 +90,96 @@ $ultimo_clima = end($info_clima);
   <div class="main-content" id="panel">
     <!--Paneles de informacion (humedad, temperatura, pH, Presion atmosferica, radiacion UV)-->
     <div class="row justify-content-center" ">
-  <div class=" col-sm-5"><br>
-      <div class="card">
-        <img class="align-items-center " src="./assets/img/humedad.png" style="width:20%">
-        <h3>Humedad</h3>
-        <!--hacemos un echo para mostrar datos que se requieren -->
-        <p id="humedad_dinamica"><?php echo $ultimo_clima->humedad; ?> %</p>
+        <script>
+        $(document).ready(function() {
+           if (window.localStorage.getItem("div1") != null) {
+            var pb = window.localStorage.getItem("div1");
+            if (pb == "true") {
+             $(".div1").hide();
+           }
+         }
+      });
+    </script>    
+   <div class=" col-sm-5 div1 "><br>
+        <div class=" card div1">
+          <img class="align-items-center " src="./assets/img/humedad.png" style="width:20%">
+          <h3>Humedad</h3>
+          <!--hacemos un echo para mostrar datos que se requieren -->
+          <p id="humedad_dinamica"><?php echo $ultimo_clima->humedad; ?> %</p>
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function() {
+          if (window.localStorage.getItem("div2") != null) {
+            var pb = window.localStorage.getItem("div2");
+            if (pb == "true") {
+              $(".div2").hide();
+            }
+          }
+        });
+      </script>
+      <div class="col-sm-5 div2"><br>
+        <div class="card div2">
+          <img class="align-items-center " src="./assets/img/temp.png" style="width:20%">
+          <h3>Temperatura</h3>
+          <p id="temperatura_dinamica"><?php echo $ultimo_clima->temperatura; ?> °C </p>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function() {
+          if (window.localStorage.getItem("div3") != null) {
+            var pb = window.localStorage.getItem("div3");
+            if (pb == "true") {
+              $(".div3").hide();
+            }
+          }
+        });
+      </script>
+      <div class="col-sm-5 div3"><br>
+        <div class="card div3">
+          <img class="align-items-center " src="./assets/img/acidez.png" style="width:20%">
+          <h3>pH</h3>
+          <p id="ph_dinamico"><?php echo $ultimo_clima->ph; ?></p>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function() {
+          if (window.localStorage.getItem("div4") != null) {
+            var pb = window.localStorage.getItem("div4");
+            if (pb == "true") {
+              $(".div4").hide();
+            }
+          }
+        });
+      </script>
+
+      <div class="col-sm-5 div4"><br>
+        <div class="card  div4">
+          <img class="align-items-center " src="./assets/img/atmosf.png" style="width:20%">
+          <h3>Presión atmosférica</h3>
+          <p id="presion_dinamica"><?php echo $ultimo_clima->presion; ?> hPa</p>
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function() {
+          if (window.localStorage.getItem("div5") != null) {
+            var pb = window.localStorage.getItem("div5");
+            if (pb == "true") {
+              $(".div5").hide();
+            }
+          }
+        });
+      </script>
+      <div class="col-sm-5 div5"><br>
+        <div class="card  div5">
+          <img class="align-items-center " src="./assets/img/uv.png" style="width:20%">
+          <h3>Radiación ultravioleta</h3>
+          <p id="radiacion_dinamica"><?php echo $ultimo_clima->uv; ?> UV</p>
+        </div>
       </div>
     </div>
-    <div class="col-sm-5  "><br>
-      <div class="card">
-        <img class="align-items-center " src="./assets/img/temp.png" style="width:20%">
-        <h3>Temperatura</h3>
-        <p id="temperatura_dinamica"><?php echo $ultimo_clima->temperatura; ?> °C </p>
-      </div>
-    </div>
-    <br>
-    <div class="col-sm-5">
-      <div class="card">
-        <img class="align-items-center " src="./assets/img/acidez.png" style="width:20%">
-        <h3>pH</h3>
-        <p id="ph_dinamico"><?php echo $ultimo_clima->ph; ?></p>
-      </div>
-    </div>
-    <div class="col-sm-5 ">
-      <div class="card  ">
-        <img class="align-items-center " src="./assets/img/atmosf.png" style="width:20%">
-        <h3>Presión atmosférica</h3>
-        <p id="presion_dinamica"><?php echo $ultimo_clima->presion; ?> hPa</p>
-      </div>
-    </div>
-    <div class="col-sm-5 ">
-      <div class="card  ">
-        <img class="align-items-center " src="./assets/img/uv.png" style="width:20%">
-        <h3>Radiación ultravioleta</h3>
-        <p id="radiacion_dinamica"><?php echo $ultimo_clima->uv; ?> UV</p>
-      </div>
-    </div>
-  </div>
   </div>
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -140,17 +197,17 @@ $ultimo_clima = end($info_clima);
             'lugar': 'home'
           },
           dataType: 'json',
-          
+
           success: function(json) {
             //otorgramos la id para poder actualizar
             $('#temperatura_dinamica').html(json.temperatura + " °C");
             $('#humedad_dinamica').html(json.humedad + " %");
             $('#ph_dinamico').html(json.ph);
-            $('#presion_dinamica').html(json.presion+ " hPa");
+            $('#presion_dinamica').html(json.presion + " hPa");
             $('#radiacion_dinamica').html(json.uv + " UV");
           },
           complete: function(json) {
-      
+
             setTimeout(doAjax, interval);
           }
         });
@@ -159,4 +216,5 @@ $ultimo_clima = end($info_clima);
     });
   </script>
 </body>
+
 </html>
