@@ -35,12 +35,10 @@ if (!isset($usuario)) {
   <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
   <!-- ocultar -->
-  <script src="../app/assets/js/ocultar.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  
 
-
+  <script src="./assets/js/ocultar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -102,51 +100,153 @@ if (!isset($usuario)) {
           <form id="myForm" onsubmit="return validar()">
             <div class="form-group">
               <div class="row justify-content-center">
-
-  
-
-
-
+                <!--Primera configuracion -->
                 <div class=" col-sm-5"><br>
-                  <div class="card">
+                  <script>
+                    $(document).ready(function() {
+                      if (window.localStorage.getItem("div1") != null) {
+                        var pb = window.localStorage.getItem("div1");
+                        if (pb == "true") {
+                          $(".div1").hide();
+                        }
+                      }
+
+                      $("button1").click(function() {
+                        var v = $(".div1").is(":visible")
+                        $(".div1").fadeToggle(500, "swing");
+                        window.localStorage.setItem("div1", v)
+                      });
+                    });
+
+                    //test de coloreo
+                    miStorage = window.localStorage;
+
+                    var estado = localStorage.getItem('estado');
+
+                    if (estado == 1)
+                      day();
+                    else if (estado == 0)
+                      dark();
+
+                    function dark() {
+                      localStorage.setItem('estado', 0);
+                      
+                    }
+
+                    function day() {
+                      localStorage.setItem('estado', 1);
+                      document.body.style.background = '#f1f1f1';
+                      document.getElementById('main-cont').classList.remove('dark-bg');
+                      document.getElementById('main-cont').classList.add('day-main');
+                      document.getElementById("post-title-data").style.color = "black"
+                    }
+                  </script>
+                  <div class="card ">
                     <h3>Humedad</h3>
-                    <button type="button" class="btn btn-warning" id="humedad">Activar/Desactivar</button>
-
+                    <button1 type="button" class="btn btn-warning" id="humedad">Activar/Desactivar</button1>
                   </div>
                 </div>
+                <p class="div1"></p>
+                <!--segunda configuracion -->
+                <div class=" col-sm-5"><br>
+                  <script>
+                    $(document).ready(function() {
+                      if (window.localStorage.getItem("div2") != null) {
+                        var pb = window.localStorage.getItem("div2");
+                        if (pb == "true") {
+                          $(".div2").hide();
+                        }
+                      }
 
-                <div class="col-sm-5  "><br>
-                  <div class="card">
-                    <h3>Temperatura</h3>
-                    <button type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button>
-
+                      $("button2").click(function() {
+                        var v = $(".div2").is(":visible")
+                        $(".div2").fadeToggle(500, "swing");
+                        window.localStorage.setItem("div2", v)
+                      });
+                    });
+                  </script>
+                  <div class="card ">
+                    <h3>temperatura</h3>
+                    <button2 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button2>
                   </div>
                 </div>
-                <br>
-                <div class="col-sm-5">
-                  <div class="card">
-                    <h3>pH</h3>
-                    <button type="button" class="btn btn-warning" id="ph">Activar/Desactivar</button>
+                <p class="div2"></p>
 
 
+                <!--tercera configuracion -->
+                <div class=" col-sm-5"><br>
+                  <script>
+                    $(document).ready(function() {
+                      if (window.localStorage.getItem("div3") != null) {
+                        var pb = window.localStorage.getItem("div3");
+                        if (pb == "true") {
+                          $(".div3").hide();
+                        }
+                      }
+
+                      $("button3").click(function() {
+                        var v = $(".div3").is(":visible")
+                        $(".div3").fadeToggle(500, "swing");
+                        window.localStorage.setItem("div3", v)
+                      });
+                    });
+                  </script>
+                  <div class="card ">
+                    <h3>ph</h3>
+                    <button3 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button3>
                   </div>
                 </div>
-                <div class="col-sm-5 ">
-                  <div class="card  ">
-                    <h3>Presión atmosférica</h3>
-                    <button type="button" class="btn btn-warning" id="presion">Activar/Desactivar</button>
+                <p class="div3"></p>
+                <!--cuarta configuracion -->
+                <div class=" col-sm-5"><br>
+                  <script>
+                    $(document).ready(function() {
+                      if (window.localStorage.getItem("div4") != null) {
+                        var pb = window.localStorage.getItem("div4");
+                        if (pb == "true") {
+                          $(".div4").hide();
+                        }
+                      }
 
-
+                      $("button4").click(function() {
+                        var v = $(".div4").is(":visible")
+                        $(".div4").fadeToggle(500, "swing");
+                        window.localStorage.setItem("div4", v)
+                      });
+                    });
+                  </script>
+                  <div class="card ">
+                    <h3>Presion Atmosferica</h3>
+                    <button4 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button4>
                   </div>
                 </div>
-                <div class="col-sm-5 ">
-                  <div class="card  ">
+                <p class="div4"></p>
+
+                <!--Quinta configuracion -->
+                <div class=" col-sm-5"><br>
+                  <script>
+                    $(document).ready(function() {
+                      if (window.localStorage.getItem("div5") != null) {
+                        var pb = window.localStorage.getItem("div5");
+                        if (pb == "true") {
+                          $(".div5").hide();
+                        }
+                      }
+
+                      $("button5").click(function() {
+                        var v = $(".div5").is(":visible")
+                        $(".div5").fadeToggle(500, "swing");
+                        window.localStorage.setItem("div5", v)
+                      });
+                    });
+                  </script>
+                  <div class="card ">
                     <h3>Radiación ultravioleta</h3>
-                    <button type="button" class="btn btn-warning" id="uv">Activar/Desactivar</button>
-
-
+                    <button5 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button5>
                   </div>
                 </div>
+                <p class="div5"></p>
+                <!--Fin configuracion -->
               </div>
             </div>
           </form>
