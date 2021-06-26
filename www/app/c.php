@@ -38,6 +38,11 @@ if (!isset($usuario)) {
   <script src="../app/assets/js/ocultar.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <link rel="stylesheet" href="../app/assets/css/ocultar.css">
   
 
 
@@ -93,72 +98,40 @@ if (!isset($usuario)) {
   </nav>
   <!--tarjetas -->
   <div class="main-content" id="panel">
+
     <!--Configuracion-->
-    <br>
-    <div class="container" style="max-width: 700px; min-width: 400px;">
-      <div class="card">
-        <h2 class="card-header text-center">Modificar estado de sensores</h2>
-        <div class="card-body">
-          <form id="myForm" onsubmit="return validar()">
-            <div class="form-group">
-              <div class="row justify-content-center">
-
-  
 
 
-
-                <div class=" col-sm-5"><br>
-                  <div class="card">
-                    <h3>Humedad</h3>
-                    <button type="button" class="btn btn-warning" id="humedad">Activar/Desactivar</button>
-
-                  </div>
-                </div>
-
-                <div class="col-sm-5  "><br>
-                  <div class="card">
-                    <h3>Temperatura</h3>
-                    <button type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button>
-
-                  </div>
-                </div>
-                <br>
-                <div class="col-sm-5">
-                  <div class="card">
-                    <h3>pH</h3>
-                    <button type="button" class="btn btn-warning" id="ph">Activar/Desactivar</button>
-
-
-                  </div>
-                </div>
-                <div class="col-sm-5 ">
-                  <div class="card  ">
-                    <h3>Presión atmosférica</h3>
-                    <button type="button" class="btn btn-warning" id="presion">Activar/Desactivar</button>
-
-
-                  </div>
-                </div>
-                <div class="col-sm-5 ">
-                  <div class="card  ">
-                    <h3>Radiación ultravioleta</h3>
-                    <button type="button" class="btn btn-warning" id="uv">Activar/Desactivar</button>
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div class="alert">
+    <span class="closebtn">&times;</span>
+      Our office will be closed from Friday 23rd December and re-open Wednesday 11th January.
     </div>
+
+
+    <p>
+      <a href="#">Clear storage</a>
+    </p>
+
+    <script>
+      const showMsg = localStorage.getItem('showMsg');
+
+      if(showMsg !== 'false'){
+        $('.alert').show();
+      }
+
+      $('.closebtn').on('click', function(){
+        $('.alert').fadeOut('slow');
+        localStorage.setItem('showMsg', 'false');
+      });
+
+      $('a').on('click', function(e){
+        e.preventDefault();
+        localStorage.setItem('showMsg', null);
+      });
+    </script>
+
+
   </div>
-
-  <!-- TESTTTT -->
-
-
-
 
 </body>
 

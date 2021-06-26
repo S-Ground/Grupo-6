@@ -119,6 +119,7 @@ if (!isset($usuario)) {
             fetch(url)
               .then(response => response.json())
               .then(datos => mostrar(datos))
+              
               .catch(error => console.log(error))
 
             //una ves obtenido los datos, estos se seleccionan y luego se muestran
@@ -132,6 +133,7 @@ if (!isset($usuario)) {
               
             };
           
+
           </script>
 
         </div>
@@ -169,6 +171,7 @@ if (!isset($usuario)) {
             fetch(url1)
               .then(response => response.json())
               .then(datos1 => mostrar1(datos1))
+              .then(datos1 => console.log(datos1))
               .catch(error => console.log(error))
 
             const mostrar1 = (datos1) => {
