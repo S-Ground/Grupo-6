@@ -1,59 +1,48 @@
 <?php
 ob_start();
 //inicio de sesion 
+require '../controlador/db.php';
 
 session_start();
+
 $usuario = $_SESSION['username'];
 //Sin acceso a sesion, lo devuelve a login.php
-
-
 if (!isset($usuario)) {
-  header("location: ../controlador/login.php");
-} else {
+  header('location: ../controlador/login.php');
 
+} else {
+  
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Sensores</title>
+  <title>Histograma</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
-  <!-- Letras -->
+  <!-- letra -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Iconos -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./assets/css/cards.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-  <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
-  <!-- ocultar -->
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   
 
-  <script src="./assets/js/ocultar.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-
+  <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>
 </head>
 
 <body>
-
   <!-- barra lateral-->
   <nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
     <div class="nav-item">
       <div>
         <br>
         <ul>
-          <!--Consulta a base de datos por usuario-->
           <?php
           echo "<h1>BIENVENIDO $usuario</h1> ";
           ?>
@@ -90,37 +79,34 @@ if (!isset($usuario)) {
       </div>
     </div>
 
-
   </nav>
-  <!--tarjetas -->
-  <div class="main-content" id="panel">
-
-    <!--Configuracion
-  
-  var status = localStorage.getItem('chkStatus');
-  -->
-
-<script>
- $(document).ready(function() {
-  if (window.localStorage.getItem("div1") != null) {
-    var pb = window.localStorage.getItem("div1");
-    if (pb == "true") {
-      $(".div1").hide();
-    }
-  }
-
-  $("button").click(function() {
-    var v = $(".div1").is(":visible")
-    $(".div1").fadeToggle(500, "swing");
-    window.localStorage.setItem("div1", v)
-  });
-;
-</script>
-
-<div class="div1">Humedad es visible</div>
-
-<button>humedad</button>
-
+  <!--Hisogramas -->
+  <div class="main-content" id="panel"> <br>
+    
+    
+  <div id="chart"></div>
+        <script>
+            function getData() {
+                return Math.random();
+            }  
+            Plotly.plot('chart',[{
+                y:[getData()],
+                type:'line'
+            }]);
+            
+            var cnt = 0;
+            setInterval(function(){
+                Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
+                cnt++;
+                if(cnt > 500) {
+                    Plotly.relayout('chart',{
+                        xaxis: {
+                            range: [cnt-500,cnt]
+                        }
+                    });
+                }
+            },15);
+        </script>
 
 
 
@@ -133,7 +119,23 @@ if (!isset($usuario)) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+    <!--Ultimo div panel-->
   </div>
+
+  <!--grafico-->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 </body>
 
 </html>

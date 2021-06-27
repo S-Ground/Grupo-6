@@ -99,7 +99,7 @@ $ultimo_clima = end($info_clima);
          }
       });
     </script>    
-   <div class=" col-sm-5 div1 "><br>
+   <div class=" col-sm-5 div1"><br>
         <div class=" card div1">
           <img class="align-items-center " src="./assets/img/humedad.png" style="width:20%">
           <h3>Humedad</h3>

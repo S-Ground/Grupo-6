@@ -119,7 +119,6 @@ if (!isset($usuario)) {
             fetch(url)
               .then(response => response.json())
               .then(datos => mostrar(datos))
-              
               .catch(error => console.log(error))
 
             //una ves obtenido los datos, estos se seleccionan y luego se muestran
@@ -132,7 +131,13 @@ if (!isset($usuario)) {
               console.log(myChart.data)
               
             };
-          
+            $(document).ready(function(){
+                setInterval(
+                  function(){
+                    $('myChart');
+                  },1000
+                )
+            });
 
           </script>
 
@@ -171,7 +176,6 @@ if (!isset($usuario)) {
             fetch(url1)
               .then(response => response.json())
               .then(datos1 => mostrar1(datos1))
-              .then(datos1 => console.log(datos1))
               .catch(error => console.log(error))
 
             const mostrar1 = (datos1) => {
@@ -184,6 +188,7 @@ if (!isset($usuario)) {
 
 
             };
+           
           </script>
         </div>
       </div>
@@ -232,6 +237,9 @@ if (!isset($usuario)) {
 
 
             };
+          
+
+
           </script>
         </div>
       </div>
@@ -336,56 +344,6 @@ if (!isset($usuario)) {
     </div>
 
     <!--Histograma de test-->
-
-    <div class="container" style="max-width: 1300px; min-width: 400px;">
-      <div class="card">
-        <div class="card-body">
-          <canvas id="myChart5" style="position: relative; height: 25vh; width: 80vw;"></canvas>
-          <script>
-            var ctx5 = document.getElementById('myChart5').getContext('2d');
-            var myChart5 = new Chart(ctx5, {
-              type: 'line',
-              data:  {
-                datasets: [{
-                  label: 'test radiacion UV',
-                  backgroundColor: ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
-                  borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 1.5,
-                  radius: 1.5
-                }]
-              },
-              options: {
-                scales: {
-                  xAxes: [{
-                    type: 'realtime'
-                  }]
-                }
-              }
-            })
-            let url5 =  'http://localhost/apirest_php/datos.php'
-            fetch(url5)
-              .then(response => response.json())
-              .then(datos5 => mostrar5(datos5))
-              .catch(error => console.log(error))
-
-            const mostrar5 = (datos5) => {
-              datos5.forEach(element => {
-                myChart5.data['labels'].push(element.fecha)
-                myChart5.data['datasets'][0].data.push(element.uv)
-                myChart5.update();
-              });
-              console.log(myChart5.data)
-
-
-            };
-            
-            
-          </script>
-        </div>
-      </div>
-    </div>
-
-
     <!--Ultimo div panel-->
   </div>
 
