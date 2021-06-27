@@ -37,7 +37,6 @@ $ultimo_clima = end($info_clima);
   <!-- Barra lateral -->
   <link rel="stylesheet" href="./assets/css/bar.css">
   <!-- ocultar localstorage -->
-  <script src="./assets/js/ocultar.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 

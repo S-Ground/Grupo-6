@@ -37,12 +37,11 @@ if (!isset($usuario)) {
   <!-- ocultar -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="./assets/js/ocultar.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
-<body>
+<body  >
 
   <!-- barra lateral-->
   <nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
@@ -103,14 +102,17 @@ if (!isset($usuario)) {
                 <!--Primera configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
+                    //iniciamos la funcion, obtenemos la id con la que trabajaremos para luego poder ocultar o mostrarla
                     $(document).ready(function() {
                       if (window.localStorage.getItem("div1") != null) {
                         var pb = window.localStorage.getItem("div1");
                         if (pb == "true") {
                           $(".div1").hide();
+
                         }
                       }
 
+                      //con button1 
                       $("button1").click(function() {
                         var v = $(".div1").is(":visible")
                         $(".div1").fadeToggle(500, "swing");
@@ -119,31 +121,24 @@ if (!isset($usuario)) {
                     });
 
                     //test de coloreo
-                    miStorage = window.localStorage;
 
-                    var estado = localStorage.getItem('estado');
-
-                    if (estado == 1)
-                      day();
-                    else if (estado == 0)
-                      dark();
-
-                    function dark() {
-                      localStorage.setItem('estado', 0);
-                      
+                    
+                    function changeClass(){
+                      var color1 = localStorage.getItem("div1");
+                    if (color1 == "true") {
+                      document.getElementById("humedad").className = "btn btn-success";
+                    } else if (color1 == "false") {
+                      document.getElementById('humedad').className = "btn btn-danger";
                     }
+                  };
 
-                    function day() {
-                      localStorage.setItem('estado', 1);
-                      document.body.style.background = '#f1f1f1';
-                      document.getElementById('main-cont').classList.remove('dark-bg');
-                      document.getElementById('main-cont').classList.add('day-main');
-                      document.getElementById("post-title-data").style.color = "black"
-                    }
+                  
+                  setInterval(changeClass, 800);
                   </script>
+
+
                   <div class="card ">
-                    <h3>Humedad</h3>
-                    <button1 type="button" class="btn btn-warning" id="humedad">Activar/Desactivar</button1>
+                    <button1 type="button" id="humedad">Humedad</button1>
                   </div>
                 </div>
                 <p class="div1"></p>
@@ -164,10 +159,24 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div2", v)
                       });
                     });
+
+                    function changeClass2(){
+                      var color2 = localStorage.getItem("div2");
+
+                    if (color2 == "true") {
+                      document.getElementById("temperatura").className = "btn btn-success";
+
+                    } else if (color2 == "false") {
+
+                      document.getElementById('temperatura').className = "btn btn-danger";
+                    }
+                    
+                  };
+                 
+                  setInterval(changeClass2, 800);
                   </script>
                   <div class="card ">
-                    <h3>temperatura</h3>
-                    <button2 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button2>
+                    <button2 type="button"  id="temperatura">Temperatura</button2>
                   </div>
                 </div>
                 <p class="div2"></p>
@@ -190,10 +199,25 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div3", v)
                       });
                     });
+
+                    function changeClass3(){
+                      var color3 = localStorage.getItem("div3");
+
+                    if (color3 == "true") {
+                      document.getElementById("pH").className = "btn btn-success";
+
+                    } else if (color3 == "false") {
+
+                      document.getElementById('pH').className = "btn btn-danger";
+                    }
+                    
+                  };
+                  
+
+                  setInterval(changeClass3, 800);
                   </script>
                   <div class="card ">
-                    <h3>ph</h3>
-                    <button3 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button3>
+                    <button3 type="button" id="pH">pH</button3>
                   </div>
                 </div>
                 <p class="div3"></p>
@@ -214,10 +238,24 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div4", v)
                       });
                     });
+                    function changeClass4(){
+                      var color4 = localStorage.getItem("div4");
+
+                    if (color4 == "true") {
+                      document.getElementById("presion").className = "btn btn-success";
+
+                    } else if (color4 == "false") {
+
+                      document.getElementById('presion').className = "btn btn-danger";
+                    }
+                    
+                  };
+                 
+
+                  setInterval(changeClass4, 800);
                   </script>
                   <div class="card ">
-                    <h3>Presion Atmosferica</h3>
-                    <button4 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button4>
+                    <button4 type="button" id="presion">Presion Atmosferica</button4>
                   </div>
                 </div>
                 <p class="div4"></p>
@@ -239,10 +277,23 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div5", v)
                       });
                     });
+                    function changeClass5(){
+                      var color5 = localStorage.getItem("div5");
+
+                    if (color5 == "true") {
+                      document.getElementById("uv").className = "btn btn-success";
+
+                    } else if (color5 == "false") {
+
+                      document.getElementById('uv').className = "btn btn-danger";
+                    }
+                    
+                  };
+
+                  setInterval(changeClass5, 800);
                   </script>
                   <div class="card ">
-                    <h3>Radiación ultravioleta</h3>
-                    <button5 type="button" class="btn btn-warning" id="temperatura">Activar/Desactivar</button5>
+                    <button5 type="button" id="uv">Radiación ultravioleta</button5>
                   </div>
                 </div>
                 <p class="div5"></p>
