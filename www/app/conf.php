@@ -1,12 +1,9 @@
 <?php
 ob_start();
 //inicio de sesion 
-
 session_start();
 $usuario = $_SESSION['username'];
 //Sin acceso a sesion, lo devuelve a login.php
-
-
 if (!isset($usuario)) {
   header("location: ../controlador/login.php");
 } else {
@@ -14,10 +11,7 @@ if (!isset($usuario)) {
   //boton de deslogear
   "<a href='../controlador/salir.php'>SALIR</a>";
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -120,23 +114,20 @@ if (!isset($usuario)) {
                       });
                     });
 
-                    //test de coloreo
-
-                    
+                    //funcion para colorear los botones segun el estado
                     function changeClass(){
+                      //Obtenemos el estado de localstorage y le asignamos color1 como variable
                       var color1 = localStorage.getItem("div1");
+                      //comparamos el estado de la variable para luego otorgrarle un color segun corresponda
                     if (color1 == "true") {
-                      document.getElementById("humedad").className = "btn btn-success";
+                      document.getElementById("humedad").className = "btn btn-danger";
                     } else if (color1 == "false") {
-                      document.getElementById('humedad').className = "btn btn-danger";
+                      document.getElementById('humedad').className = "btn btn-success";
                     }
                   };
-
-                  
+                  //actualizamos la funcion cada 800ms en caso de que hayan cambios estos se reflejen en la interfaz web
                   setInterval(changeClass, 800);
                   </script>
-
-
                   <div class="card ">
                     <button1 type="button" id="humedad">Humedad</button1>
                   </div>
@@ -144,6 +135,11 @@ if (!isset($usuario)) {
                 <p class="div1"></p>
                 <!--segunda configuracion -->
                 <div class=" col-sm-5"><br>
+
+
+
+
+
                   <script>
                     $(document).ready(function() {
                       if (window.localStorage.getItem("div2") != null) {
@@ -164,11 +160,11 @@ if (!isset($usuario)) {
                       var color2 = localStorage.getItem("div2");
 
                     if (color2 == "true") {
-                      document.getElementById("temperatura").className = "btn btn-success";
+                      document.getElementById("temperatura").className = "btn btn-danger";
 
                     } else if (color2 == "false") {
 
-                      document.getElementById('temperatura').className = "btn btn-danger";
+                      document.getElementById('temperatura').className = "btn btn-success";
                     }
                     
                   };
@@ -204,11 +200,11 @@ if (!isset($usuario)) {
                       var color3 = localStorage.getItem("div3");
 
                     if (color3 == "true") {
-                      document.getElementById("pH").className = "btn btn-success";
+                      document.getElementById("pH").className = "btn btn-danger";
 
                     } else if (color3 == "false") {
 
-                      document.getElementById('pH').className = "btn btn-danger";
+                      document.getElementById('pH').className = "btn btn-success";
                     }
                     
                   };
@@ -242,11 +238,11 @@ if (!isset($usuario)) {
                       var color4 = localStorage.getItem("div4");
 
                     if (color4 == "true") {
-                      document.getElementById("presion").className = "btn btn-success";
+                      document.getElementById("presion").className = "btn btn-danger";
 
                     } else if (color4 == "false") {
 
-                      document.getElementById('presion').className = "btn btn-danger";
+                      document.getElementById('presion').className = "btn btn-success";
                     }
                     
                   };
@@ -281,11 +277,11 @@ if (!isset($usuario)) {
                       var color5 = localStorage.getItem("div5");
 
                     if (color5 == "true") {
-                      document.getElementById("uv").className = "btn btn-success";
+                      document.getElementById("uv").className = "btn btn-danger";
 
                     } else if (color5 == "false") {
 
-                      document.getElementById('uv').className = "btn btn-danger";
+                      document.getElementById('uv').className = "btn btn-success";
                     }
                     
                   };
@@ -305,12 +301,7 @@ if (!isset($usuario)) {
       </div>
     </div>
   </div>
-
   <!-- TESTTTT -->
-
-
-
-
 </body>
 
 </html>
