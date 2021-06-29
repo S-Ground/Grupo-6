@@ -1,6 +1,7 @@
 <?php
 //introducir datos a las tablas, para hacer testing de funcionamiento. (software in the loop)
 require 'db.php';
+
     $temperatura = rand(-5,20);
     $humedad = rand(0,100);
     $date = date('y/m/d h:i:s', time());
