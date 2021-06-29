@@ -35,7 +35,7 @@ if (!isset($usuario)) {
 
 </head>
 
-<body  >
+<body>
 
   <!-- barra lateral-->
   <nav class=" navbar-vertical  fixed-left  navbar-expand-xs navbar-light " id="sidenav-main">
@@ -115,18 +115,18 @@ if (!isset($usuario)) {
                     });
 
                     //funcion para colorear los botones segun el estado
-                    function changeClass(){
+                    function changeClass() {
                       //Obtenemos el estado de localstorage y le asignamos color1 como variable
                       var color1 = localStorage.getItem("div1");
                       //comparamos el estado de la variable para luego otorgrarle un color segun corresponda
-                    if (color1 == "true") {
-                      document.getElementById("humedad").className = "btn btn-danger";
-                    } else if (color1 == "false") {
-                      document.getElementById('humedad').className = "btn btn-success";
-                    }
-                  };
-                  //actualizamos la funcion cada 800ms en caso de que hayan cambios estos se reflejen en la interfaz web
-                  setInterval(changeClass, 800);
+                      if (color1 == "true") {
+                        document.getElementById("humedad").className = "btn btn-danger";
+                      } else if (color1 == "false") {
+                        document.getElementById('humedad').className = "btn btn-success";
+                      }
+                    };
+                    //actualizamos la funcion cada 800ms en caso de que hayan cambios estos se reflejen en la interfaz web
+                    setInterval(changeClass, 800);
                   </script>
                   <div class="card ">
                     <button1 type="button" id="humedad">Humedad</button1>
@@ -156,23 +156,23 @@ if (!isset($usuario)) {
                       });
                     });
 
-                    function changeClass2(){
+                    function changeClass2() {
                       var color2 = localStorage.getItem("div2");
 
-                    if (color2 == "true") {
-                      document.getElementById("temperatura").className = "btn btn-danger";
+                      if (color2 == "true") {
+                        document.getElementById("temperatura").className = "btn btn-danger";
 
-                    } else if (color2 == "false") {
+                      } else if (color2 == "false") {
 
-                      document.getElementById('temperatura').className = "btn btn-success";
-                    }
-                    
-                  };
-                 
-                  setInterval(changeClass2, 800);
+                        document.getElementById('temperatura').className = "btn btn-success";
+                      }
+
+                    };
+
+                    setInterval(changeClass2, 800);
                   </script>
                   <div class="card ">
-                    <button2 type="button"  id="temperatura">Temperatura</button2>
+                    <button2 type="button" id="temperatura">Temperatura</button2>
                   </div>
                 </div>
                 <p class="div2"></p>
@@ -196,21 +196,21 @@ if (!isset($usuario)) {
                       });
                     });
 
-                    function changeClass3(){
+                    function changeClass3() {
                       var color3 = localStorage.getItem("div3");
 
-                    if (color3 == "true") {
-                      document.getElementById("pH").className = "btn btn-danger";
+                      if (color3 == "true") {
+                        document.getElementById("pH").className = "btn btn-danger";
 
-                    } else if (color3 == "false") {
+                      } else if (color3 == "false") {
 
-                      document.getElementById('pH').className = "btn btn-success";
-                    }
-                    
-                  };
-                  
+                        document.getElementById('pH').className = "btn btn-success";
+                      }
 
-                  setInterval(changeClass3, 800);
+                    };
+
+
+                    setInterval(changeClass3, 800);
                   </script>
                   <div class="card ">
                     <button3 type="button" id="pH">pH</button3>
@@ -234,21 +234,22 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div4", v)
                       });
                     });
-                    function changeClass4(){
+
+                    function changeClass4() {
                       var color4 = localStorage.getItem("div4");
 
-                    if (color4 == "true") {
-                      document.getElementById("presion").className = "btn btn-danger";
+                      if (color4 == "true") {
+                        document.getElementById("presion").className = "btn btn-danger";
 
-                    } else if (color4 == "false") {
+                      } else if (color4 == "false") {
 
-                      document.getElementById('presion').className = "btn btn-success";
-                    }
-                    
-                  };
-                 
+                        document.getElementById('presion').className = "btn btn-success";
+                      }
 
-                  setInterval(changeClass4, 800);
+                    };
+
+
+                    setInterval(changeClass4, 800);
                   </script>
                   <div class="card ">
                     <button4 type="button" id="presion">Presion Atmosferica</button4>
@@ -273,20 +274,21 @@ if (!isset($usuario)) {
                         window.localStorage.setItem("div5", v)
                       });
                     });
-                    function changeClass5(){
+
+                    function changeClass5() {
                       var color5 = localStorage.getItem("div5");
 
-                    if (color5 == "true") {
-                      document.getElementById("uv").className = "btn btn-danger";
+                      if (color5 == "true") {
+                        document.getElementById("uv").className = "btn btn-danger";
 
-                    } else if (color5 == "false") {
+                      } else if (color5 == "false") {
 
-                      document.getElementById('uv').className = "btn btn-success";
-                    }
-                    
-                  };
+                        document.getElementById('uv').className = "btn btn-success";
+                      }
 
-                  setInterval(changeClass5, 800);
+                    };
+
+                    setInterval(changeClass5, 800);
                   </script>
                   <div class="card ">
                     <button5 type="button" id="uv">Radiación ultravioleta</button5>
@@ -300,8 +302,20 @@ if (!isset($usuario)) {
         </div>
       </div>
     </div>
-  </div>
   <!-- TESTTTT -->
+
+  <form class="login-container" action="../controlador/actualizar.php" method="post">
+            <!-- a travez del chekRut comprobamos que se esta ingresando un rut valido-->
+            <p>org <input " type="text"  name="nombreOrg"></p>
+            <p>Contraseña <input type="password" name="clave"></p>
+            <!-- mensaje de error al quivocarse-->
+           
+            <input type="submit" name="update" value="Modificar">
+        </form>
+
+
+
+  </div>
 </body>
 
 </html>

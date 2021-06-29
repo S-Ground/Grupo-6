@@ -104,7 +104,19 @@ $ultimo_clima = end($info_clima);
           <img class="align-items-center " src="./assets/img/humedad.png" style="width:20%">
           <h3>Humedad</h3>
           <!--hacemos un echo para mostrar datos que se requieren -->
-          <p id="humedad_dinamica"><?php echo $ultimo_clima->humedad; ?> %</p>
+          <p id="humedad_dinamica"> <?php echo $ultimo_clima->humedad; ?> % </p>
+
+          <?php
+
+
+            if ($ultimo_clima->humedad> 30) {
+echo "es muy alto para la humedad normal abra la ventana";
+}  else {
+echo  "La humedad esta normal";
+}
+
+
+?> 
         </div>
       </div>
 
@@ -123,6 +135,7 @@ $ultimo_clima = end($info_clima);
           <img class="align-items-center " src="./assets/img/temp.png" style="width:20%">
           <h3>Temperatura</h3>
           <p id="temperatura_dinamica"><?php echo $ultimo_clima->temperatura; ?> °C </p>
+       
         </div>
       </div>
       <script>
@@ -140,6 +153,7 @@ $ultimo_clima = end($info_clima);
           <img class="align-items-center " src="./assets/img/acidez.png" style="width:20%">
           <h3>pH</h3>
           <p id="ph_dinamico"><?php echo $ultimo_clima->ph; ?></p>
+        
         </div>
       </div>
       <script>
@@ -158,6 +172,7 @@ $ultimo_clima = end($info_clima);
           <img class="align-items-center " src="./assets/img/atmosf.png" style="width:20%">
           <h3>Presión atmosférica</h3>
           <p id="presion_dinamica"><?php echo $ultimo_clima->presion; ?> hPa</p>
+         
         </div>
       </div>
 
@@ -176,6 +191,7 @@ $ultimo_clima = end($info_clima);
           <img class="align-items-center " src="./assets/img/uv.png" style="width:20%">
           <h3>Radiación ultravioleta</h3>
           <p id="radiacion_dinamica"><?php echo $ultimo_clima->uv; ?> UV</p>
+        
         </div>
       </div>
     </div>
@@ -199,8 +215,9 @@ $ultimo_clima = end($info_clima);
 
           success: function(json) {
             //otorgramos la id para poder actualizar
-            $('#temperatura_dinamica').html(json.temperatura + " °C");
+            $('#temperatura_dinamica').html(json.temperatura + "°C");
             $('#humedad_dinamica').html(json.humedad + " %");
+            $('#humedad_dinamica2').html(json.humedad + " %");
             $('#ph_dinamico').html(json.ph);
             $('#presion_dinamica').html(json.presion + " hPa");
             $('#radiacion_dinamica').html(json.uv + " UV");
@@ -211,8 +228,10 @@ $ultimo_clima = end($info_clima);
           }
         });
       }
-      setTimeout(doAjax, interval);
+    // aca va el actualizar
+    setTimeout(doAjax, interval);
     });
+   
   </script>
 </body>
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2021 a las 07:15:18
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 7.3.27
+-- Servidor: db
+-- Tiempo de generación: 27-06-2021 a las 01:59:20
+-- Versión del servidor: 8.0.25
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `php_login_database`
 --
-CREATE DATABASE IF NOT EXISTS `php_login_database` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `php_login_database`;
 
 -- --------------------------------------------------------
 
@@ -30,13 +28,13 @@ USE `php_login_database`;
 --
 
 CREATE TABLE `datos` (
-  `id` int(11) NOT NULL,
-  `fecha` timestamp NULL DEFAULT NULL,
-  `temperatura` int(11) DEFAULT NULL,
-  `humedad` int(11) DEFAULT NULL,
-  `ph` int(4) DEFAULT NULL,
+  `id` int NOT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `temperatura` int DEFAULT NULL,
+  `humedad` int DEFAULT NULL,
+  `ph` int DEFAULT NULL,
   `presion` decimal(5,0) DEFAULT NULL,
-  `uv` int(3) DEFAULT NULL
+  `uv` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -69,7 +67,58 @@ INSERT INTO `datos` (`id`, `fecha`, `temperatura`, `humedad`, `ph`, `presion`, `
 (253, '2021-06-24 10:42:01', -3, 8, 6, '814', 6),
 (254, '2021-06-24 10:43:56', 3, 33, 8, '640', 3),
 (255, '2021-06-24 10:43:59', 9, 5, 11, '1027', 11),
-(256, '2021-06-24 10:44:01', -2, 42, 10, '957', 3);
+(256, '2021-06-24 10:44:01', -2, 42, 10, '957', 3),
+(257, '2021-06-10 01:19:01', 1, 1, 1, '1', 1),
+(258, '2021-06-24 05:20:26', 2, 2, 2, '2', 2),
+(259, '2021-06-24 05:20:26', 22, 2, 2, '2', 2),
+(260, '2021-06-24 06:18:58', 15, 98, 0, '1191', 6),
+(261, '2021-06-24 06:18:59', 3, 40, 12, '1083', 5),
+(262, '2021-06-24 06:19:55', 1, 41, 3, '1150', 7),
+(263, '2021-06-24 06:19:57', 0, 78, 3, '959', 7),
+(264, '2021-06-24 06:19:58', 5, 92, 4, '1159', 11),
+(265, '2021-06-24 06:19:59', 17, 85, 8, '978', 1),
+(266, '2021-06-24 06:19:59', 12, 68, 0, '309', 1),
+(267, '2021-06-24 06:20:00', 20, 31, 2, '210', 7),
+(268, '2021-06-24 06:20:01', 9, 78, 2, '396', 3),
+(269, '2021-06-24 06:20:02', 0, 82, 1, '711', 9),
+(270, '2021-06-24 06:20:02', 11, 38, 9, '485', 4),
+(271, '2021-06-24 06:20:03', 5, 40, 14, '334', 11),
+(272, '2021-06-24 06:20:04', 19, 80, 4, '1016', 5),
+(273, '2021-06-24 06:20:05', 11, 61, 1, '230', 7),
+(274, '2021-06-24 06:20:07', 20, 38, 13, '580', 9),
+(275, '2021-06-24 06:20:09', 19, 10, 7, '770', 9),
+(276, '2021-06-24 06:20:11', -4, 76, 7, '898', 10),
+(277, '2021-06-24 06:20:13', -2, 42, 1, '693', 4),
+(278, '2021-06-27 12:44:23', 19, 80, 3, '989', 10),
+(279, '2021-06-27 12:44:25', 12, 100, 9, '537', 6),
+(280, '2021-06-27 12:44:32', 12, 26, 7, '425', 4),
+(281, '2021-06-27 12:44:33', 1, 74, 2, '1192', 3),
+(282, '2021-06-27 12:44:34', 7, 81, 1, '748', 9),
+(283, '2021-06-27 12:44:35', 13, 74, 14, '538', 3),
+(284, '2021-06-27 12:44:36', 8, 93, 3, '199', 8),
+(285, '2021-06-27 12:44:40', -2, 1, 4, '871', 11),
+(286, '2021-06-27 12:44:41', 0, 14, 0, '109', 1),
+(287, '2021-06-27 12:51:15', 17, 22, 1, '837', 3),
+(288, '2021-06-27 12:51:17', 20, 8, 7, '882', 5),
+(289, '2021-06-27 12:51:20', 7, 5, 9, '891', 8),
+(290, '2021-06-27 12:51:24', 17, 33, 9, '1130', 10),
+(291, '2021-06-27 01:22:11', 2, 84, 13, '633', 5),
+(292, '2021-06-27 01:34:20', 19, 46, 5, '818', 8),
+(293, '2021-06-27 01:34:23', 5, 10, 8, '1055', 11),
+(294, '2021-06-27 01:34:30', 19, 61, 14, '314', 4),
+(295, '2021-06-27 01:34:31', -2, 68, 7, '667', 8),
+(296, '2021-06-27 01:34:31', 20, 74, 7, '287', 8),
+(297, '2021-06-27 01:34:32', -2, 59, 12, '338', 4),
+(298, '2021-06-27 01:34:33', 9, 83, 12, '665', 5),
+(299, '2021-06-27 01:34:35', 18, 73, 4, '1100', 7),
+(300, '2021-06-27 01:34:36', 2, 4, 6, '266', 5),
+(301, '2021-06-27 01:34:37', 18, 2, 10, '572', 4),
+(302, '2021-06-27 01:34:38', 6, 87, 3, '666', 2),
+(303, '2021-06-27 01:34:47', -2, 19, 14, '1041', 9),
+(304, '2021-06-27 01:34:48', 19, 23, 14, '589', 5),
+(305, '2021-06-27 01:34:49', 9, 70, 5, '358', 1),
+(306, '2021-06-27 01:34:50', 5, 70, 4, '291', 1),
+(307, '2021-06-27 01:34:51', 4, 71, 9, '259', 2);
 
 -- --------------------------------------------------------
 
@@ -78,13 +127,13 @@ INSERT INTO `datos` (`id`, `fecha`, `temperatura`, `humedad`, `ph`, `presion`, `
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(4) NOT NULL,
-  `usuario` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `nombre` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `apellido` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_organizacion` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `clave` varchar(10) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `usuario` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `apellido` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_organizacion` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `clave` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -92,7 +141,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `nombre_organizacion`, `clave`) VALUES
 (1, '20064705-k', 'Gustavo', 'Igor', 'PapasMaill', 'lalala123'),
-(2, '1', '1', '1', '1', '1');
+(2, '1', '1', '1', '1', '1'),
+(3, '19640891-6', 'Manuel', 'Quezada', 'carema', '1');
 
 --
 -- Índices para tablas volcadas
@@ -105,6 +155,12 @@ ALTER TABLE `datos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -112,7 +168,13 @@ ALTER TABLE `datos`
 -- AUTO_INCREMENT de la tabla `datos`
 --
 ALTER TABLE `datos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

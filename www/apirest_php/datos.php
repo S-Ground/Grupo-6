@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     else{     
       //Solicitud get de todos los datos, en este caso entregamos los ultimos 20 datos 
-      $sql = $conexion->prepare("SELECT * FROM ( SELECT * FROM datos ORDER BY id DESC LIMIT 20 ) sub ORDER BY id ASC");
+      $sql = $conexion->prepare("SELECT * FROM ( SELECT * FROM datos ORDER BY id DESC LIMIT 25 ) sub ORDER BY id ASC");
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
