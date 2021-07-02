@@ -6,24 +6,24 @@ session_start();
 
 //inicio de sesion 
 $usuario = $_SESSION['username'];
+//introducir md5 antes del dato capturado para convertir en md5
+$clave = md5($_POST['contraseña']);
 
+//entregamos a travez de boton la id update que nos sirve para reconocer 
 if (isset($_POST['update'])){
+  //consulta sql que nos permite actualizar los datos
     $sql = ("UPDATE usuarios
-    SET nombreOrg = '$_POST[nombreOrg]', clave = '$_POST[clave]'
+    SET nombreOrg ='$_POST[nombreOrg]', clave = '$clave'
     WHERE usuario = '$usuario'");
-     header("location: ../app/conf.php");
+    header("location: ../app/conf.php");
+    echo $sql;
+    
 }  else {
-    echo "Nothing was posted";
+    echo "No funciona";
     }
     //ejecucion en motor de sql 
     if (mysqli_query($conexion, $sql)) {
     } else {
     }
     
-
-
-  //  $sql2 = "UPDATE usuarios' SET 
-    //'nombre_organizacion'='$_POST[nombre_organizacion-5]','clave'='[value-6]' WHERE usuario = $usuario";
-
-
-//update usuarios set clave= "1" where usuario = "20064705-k"
+?>

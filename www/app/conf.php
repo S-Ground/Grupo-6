@@ -96,16 +96,17 @@ if (!isset($usuario)) {
                 <!--Primera configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
-                    //iniciamos la funcion, obtenemos la id con la que trabajaremos para luego poder ocultar o mostrarla
+                    //iniciamos la funcion, obtenemos la id con la que trabajaremos para luego poder ocultar o mostrarla 
                     $(document).ready(function() {
+                      //hacemos uso de localstorage para almacenar las funciones visuales del usuario
                       if (window.localStorage.getItem("div1") != null) {
                         var pb = window.localStorage.getItem("div1");
                         if (pb == "true") {
+                          //ocultamos o mostramos segun el estado del boton 
                           $(".div1").hide();
 
                         }
                       }
-
                       //con button1 
                       $("button1").click(function() {
                         var v = $(".div1").is(":visible")
@@ -129,17 +130,12 @@ if (!isset($usuario)) {
                     setInterval(changeClass, 800);
                   </script>
                   <div class="card ">
-                    <button1 type="button" id="humedad">Humedad</button1>
+                    <button1 class="btn btn-outline-warning" type="button" id="humedad">Humedad</button1>
                   </div>
                 </div>
                 <p class="div1"></p>
                 <!--segunda configuracion -->
                 <div class=" col-sm-5"><br>
-
-
-
-
-
                   <script>
                     $(document).ready(function() {
                       if (window.localStorage.getItem("div2") != null) {
@@ -172,12 +168,10 @@ if (!isset($usuario)) {
                     setInterval(changeClass2, 800);
                   </script>
                   <div class="card ">
-                    <button2 type="button" id="temperatura">Temperatura</button2>
+                    <button2 class="btn btn-outline-warning"  type="button" id="temperatura">Temperatura</button2>
                   </div>
                 </div>
                 <p class="div2"></p>
-
-
                 <!--tercera configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
@@ -213,7 +207,7 @@ if (!isset($usuario)) {
                     setInterval(changeClass3, 800);
                   </script>
                   <div class="card ">
-                    <button3 type="button" id="pH">pH</button3>
+                    <button3 class="btn btn-outline-warning"  type="button" id="pH">pH</button3>
                   </div>
                 </div>
                 <p class="div3"></p>
@@ -252,7 +246,7 @@ if (!isset($usuario)) {
                     setInterval(changeClass4, 800);
                   </script>
                   <div class="card ">
-                    <button4 type="button" id="presion">Presion Atmosferica</button4>
+                    <button4 class="btn btn-outline-warning"  type="button" id="presion">Presion Atmosferica</button4>
                   </div>
                 </div>
                 <p class="div4"></p>
@@ -291,11 +285,13 @@ if (!isset($usuario)) {
                     setInterval(changeClass5, 800);
                   </script>
                   <div class="card ">
-                    <button5 type="button" id="uv">Radiación ultravioleta</button5>
+                    <button5 class="btn btn-outline-warning"  type="button" id="uv">Radiación ultravioleta</button5>
                   </div>
                 </div>
                 <p class="div5"></p>
                 <!--Fin configuracion -->
+
+                
               </div>
             </div>
           </form>
@@ -303,17 +299,25 @@ if (!isset($usuario)) {
       </div>
     </div>
   <!-- TESTTTT -->
+<div class="container" style="max-width: 700px; min-width: 400px;">
+      <div class="card">
+        <h2 class="card-header text-center">Modificacion de datos</h2>
+        <div class="card-body">
 
-  <form class="login-container" action="../controlador/actualizar.php" method="post">
+  <form class="login-container card" action="../controlador/actualizar.php" method="post">
             <!-- a travez del chekRut comprobamos que se esta ingresando un rut valido-->
-            <p>org <input " type="text"  name="nombreOrg"></p>
-            <p>Contraseña <input type="password" name="clave"></p>
+            <p><input class="form-control text-center"  type="text" placeholder="Nombre Organizacion" name="nombreOrg"></p>
+            <p><input class="form-control text-center" type="password" placeholder="Contraseña nueva" name="contraseña"></p>
             <!-- mensaje de error al quivocarse-->
            
-            <input type="submit" name="update" value="Modificar">
+            <input class="btn btn-primary" type="submit" name="update" value="Modificar">
         </form>
 
-
+        </div>
+      </div>
+</div>
+  </div>
+  
 
   </div>
 </body>

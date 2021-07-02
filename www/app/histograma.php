@@ -92,6 +92,7 @@ if (!isset($usuario)) {
 
             var ctx = document.getElementById('myChart').getContext('2d');
             
+            //definimos la variable con la que se trabajara
             var myChart = new Chart(ctx, {
               //Se establecen los parametros para el grafico
               type: 'line',
@@ -124,6 +125,7 @@ if (!isset($usuario)) {
             //una ves obtenido los datos, estos se seleccionan y luego se muestran
             const mostrar = (datos) => {
               datos.forEach(element => {
+                //obtenemos los datos y los ingresamos 
                 myChart.data['labels'].push(element.fecha)
                 myChart.data['datasets'][0].data.push(element.humedad)
                 myChart.update();
@@ -131,13 +133,7 @@ if (!isset($usuario)) {
               console.log(myChart.data)
               
             };
-            $(document).ready(function(){
-                setInterval(
-                  function(){
-                    $('myChart');
-                  },1000
-                )
-            });
+
 
           </script>
 

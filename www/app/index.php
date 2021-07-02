@@ -107,16 +107,12 @@ $ultimo_clima = end($info_clima);
           <p id="humedad_dinamica"> <?php echo $ultimo_clima->humedad; ?> % </p>
 
           <?php
-
-
             if ($ultimo_clima->humedad> 30) {
-echo "es muy alto para la humedad normal abra la ventana";
-}  else {
-echo  "La humedad esta normal";
-}
-
-
-?> 
+            echo "La humedad es muy alta, se le sugiere hacer cambios";
+            }  else {
+            echo  "La humedad esta normal";
+            };
+            ?> 
         </div>
       </div>
 
@@ -135,7 +131,16 @@ echo  "La humedad esta normal";
           <img class="align-items-center " src="./assets/img/temp.png" style="width:20%">
           <h3>Temperatura</h3>
           <p id="temperatura_dinamica"><?php echo $ultimo_clima->temperatura; ?> °C </p>
-       
+          <?php
+            if ($ultimo_clima->temperatura> 40) {
+            echo "La temperatura es demasiado alta";
+            }  elseif ($ultimo_clima->temperatura <= 5 ) {
+            echo  "La temperatura es muy baja";
+            }else{
+              echo "la temperatura esta en un rango normal";
+            }
+            ;
+            ?> 
         </div>
       </div>
       <script>
@@ -153,7 +158,16 @@ echo  "La humedad esta normal";
           <img class="align-items-center " src="./assets/img/acidez.png" style="width:20%">
           <h3>pH</h3>
           <p id="ph_dinamico"><?php echo $ultimo_clima->ph; ?></p>
-        
+          <?php
+            if ($ultimo_clima->ph> 5) {
+            echo "El ph es demasiado alta";
+            }  elseif ($ultimo_clima->ph <= 2 ) {
+            echo   "El ph es muy baja";
+            }else{
+              echo "El ph esta en un rango normal";
+            }
+            ;
+            ?> 
         </div>
       </div>
       <script>
@@ -172,7 +186,15 @@ echo  "La humedad esta normal";
           <img class="align-items-center " src="./assets/img/atmosf.png" style="width:20%">
           <h3>Presión atmosférica</h3>
           <p id="presion_dinamica"><?php echo $ultimo_clima->presion; ?> hPa</p>
-         
+          <?php
+            if ($ultimo_clima->temperatura> 1013) {
+            echo "La prestion atmosferica es superior";
+            }  elseif ($ultimo_clima->temperatura <= 1013  ) {
+            echo  "La presion atmosferica es mas baja de lo comun";
+            }
+            ;
+            ?> 
+            
         </div>
       </div>
 
@@ -191,9 +213,19 @@ echo  "La humedad esta normal";
           <img class="align-items-center " src="./assets/img/uv.png" style="width:20%">
           <h3>Radiación ultravioleta</h3>
           <p id="radiacion_dinamica"><?php echo $ultimo_clima->uv; ?> UV</p>
-        
+          <?php
+                 if ($ultimo_clima->uv > 7) {
+                  echo "La radiacion uv es demasiada alta";
+            }  elseif (($ultimo_clima->uv <=5) || ($ultimo_clima->uv >=3)) {
+              echo  "La radiacion uv es moderada";
+              }elseif ($ultimo_clima->uv <=2) {
+                echo "La radiacion uv es baja";
+              }
+            ;
+            ?> 
         </div>
       </div>
+      
     </div>
   </div>
   <!-- jquery -->

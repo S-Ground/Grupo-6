@@ -4,7 +4,7 @@ require 'db.php';
 session_start();
 //definicion de variables para login
 $usuario=$_POST['usuario'];
-$clave=$_POST['clave'];
+$clave=md5($_POST['clave']);
 //consulta a la base de datos
 $q="SELECT   COUNT(*) as contar from usuarios WHERE usuario='$usuario'and clave='$clave'";
 $consulta=mysqli_query($conexion,$q);

@@ -1,4 +1,5 @@
 <?php
+//actualizador (funciona para agregar datos y testear la aplicacion)
 //introducir datos a las tablas, para hacer testing de funcionamiento. (software in the loop)
 require 'db.php';
 
