@@ -307,7 +307,8 @@ if (!isset($usuario)) {
   <form class="login-container card" action="../controlador/actualizar.php" method="post">
             <!-- a travez del chekRut comprobamos que se esta ingresando un rut valido-->
             <p><input class="form-control text-center"  type="text" placeholder="Nombre Organizacion" name="nombreOrg"></p>
-            <p><input class="form-control text-center" type="password" placeholder="Contraseña nueva" name="contraseña"></p>
+            <p>La contraseña de debe contener mayusculas y numeros. </p>          
+            <p><input class="form-control text-center" type="password" pattern="^(?=.[0-9])(?=.[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" maxlength="12" placeholder="Contraseña nueva" name="contraseña"></p>
             <!-- mensaje de error al quivocarse-->
            
             <input class="btn btn-primary" type="submit" name="update" value="Modificar">
