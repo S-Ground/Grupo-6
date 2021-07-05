@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 27-06-2021 a las 01:59:20
+-- Tiempo de generación: 05-07-2021 a las 23:18:40
 -- Versión del servidor: 8.0.25
 -- Versión de PHP: 7.4.20
 
@@ -118,7 +118,35 @@ INSERT INTO `datos` (`id`, `fecha`, `temperatura`, `humedad`, `ph`, `presion`, `
 (304, '2021-06-27 01:34:48', 19, 23, 14, '589', 5),
 (305, '2021-06-27 01:34:49', 9, 70, 5, '358', 1),
 (306, '2021-06-27 01:34:50', 5, 70, 4, '291', 1),
-(307, '2021-06-27 01:34:51', 4, 71, 9, '259', 2);
+(307, '2021-06-27 01:34:51', 4, 71, 9, '259', 2),
+(308, '2021-06-27 02:12:22', 12, 60, 6, '976', 2),
+(309, '2021-06-27 02:12:24', 2, 93, 5, '679', 4),
+(310, '2021-06-27 02:12:26', 19, 23, 14, '351', 3),
+(311, '2021-06-27 02:12:27', 1, 48, 4, '687', 5),
+(312, '2021-06-27 03:46:20', 11, 56, 11, '609', 7),
+(313, '2021-06-27 03:46:23', 16, 61, 4, '180', 6),
+(314, '2021-06-27 03:46:27', 18, 38, 10, '856', 5),
+(315, '2021-06-27 03:46:29', -5, 22, 0, '870', 2),
+(316, '2021-06-30 12:25:22', 0, 6, 11, '785', 4),
+(317, '2021-06-30 12:25:30', 3, 7, 12, '966', 6),
+(318, '2021-06-30 12:25:36', 11, 92, 1, '503', 6),
+(319, '2021-06-30 12:25:38', 12, 91, 0, '208', 2),
+(320, '2021-06-30 12:25:39', 6, 21, 8, '761', 7),
+(321, '2021-06-30 12:25:40', 5, 70, 12, '882', 9),
+(322, '2021-06-30 12:25:41', 8, 96, 10, '1009', 6),
+(323, '2021-06-30 12:25:42', 7, 65, 6, '848', 9),
+(324, '2021-06-30 12:25:42', 17, 52, 9, '874', 9),
+(325, '2021-06-30 12:25:43', 9, 27, 4, '336', 2),
+(326, '2021-06-30 12:25:44', 10, 69, 11, '1104', 7),
+(327, '2021-06-30 12:25:44', 14, 59, 2, '979', 7),
+(328, '2021-06-30 12:25:45', -2, 79, 14, '575', 11),
+(329, '2021-06-30 12:25:46', 7, 77, 6, '507', 6),
+(330, '2021-06-30 01:08:11', 1, 58, 12, '1131', 5),
+(331, '2021-06-30 01:08:14', -1, 27, 4, '1127', 5),
+(332, '2021-06-30 01:08:15', 8, 95, 1, '745', 2),
+(333, '2021-06-30 01:08:17', 9, 67, 13, '796', 5),
+(334, '2021-06-30 01:08:18', 2, 74, 0, '1102', 4),
+(335, '2021-06-30 01:08:22', -2, 31, 12, '200', 11);
 
 -- --------------------------------------------------------
 
@@ -131,17 +159,17 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_organizacion` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `clave` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `nombreOrg` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `clave` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `nombre_organizacion`, `clave`) VALUES
-(1, '20064705-k', 'Gustavo', 'Igor', 'PapasMaill', 'lalala123'),
-(2, '1', '1', '1', '1', '1'),
+INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `nombreOrg`, `clave`) VALUES
+(1, '20064705-k', 'Gustavo', 'Igor', 'Papas', '202cb962ac59075b964b07152d234b70'),
+(2, '1', '1', '1', '', '1'),
 (3, '19640891-6', 'Manuel', 'Quezada', 'carema', '1');
 
 --
@@ -168,7 +196,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `datos`
 --
 ALTER TABLE `datos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
