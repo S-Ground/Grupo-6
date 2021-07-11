@@ -141,7 +141,7 @@ if (!isset($usuario)) {
       </div>
     </div>
 
-    <!--Histograma 2-->
+    <!--Histograma 2 para los siguientes graficos se realizaron los mismos procedimientos -->
 
     <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
