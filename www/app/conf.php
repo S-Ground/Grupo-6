@@ -30,9 +30,7 @@ if (!isset($usuario)) {
   <link rel="stylesheet" href="./assets/css/bar.css">
   <!-- ocultar -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -96,21 +94,24 @@ if (!isset($usuario)) {
                 <!--Primera configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
-                    //iniciamos la funcion, obtenemos la id con la que trabajaremos para luego poder ocultar o mostrarla 
+                    //Establecemos que una vez cargada la pagina, se ejececutar la siguiente funcion
                     $(document).ready(function() {
-                      //hacemos uso de localstorage para almacenar las funciones visuales del usuario
+                      //Utilizamos localstorage para almacenar datos en el navegador, a su vez obtenemos la clase 
                       if (window.localStorage.getItem("div1") != null) {
+                        //almacenamos la clase en una variable para luego compararla
                         var pb = window.localStorage.getItem("div1");
                         if (pb == "true") {
-                          //ocultamos o mostramos segun el estado del boton 
+                          //si la comparacion es verdadera, oculta la clase
                           $(".div1").hide();
-
                         }
                       }
-                      //con button1 
+                      //obtenemos la clase del boton 
                       $("button1").click(function() {
+                        //Almacenamos la clase en una variable en conjunto del estado actual (true, false)
                         var v = $(".div1").is(":visible")
+                        //utilizamos la funcion fadeToggle para desvanecer los elementos
                         $(".div1").fadeToggle(500, "swing");
+                        //almacenamos en el localstorage el estado de la clase div1
                         window.localStorage.setItem("div1", v)
                       });
                     });
@@ -134,7 +135,7 @@ if (!isset($usuario)) {
                   </div>
                 </div>
                 <p class="div1"></p>
-                <!--segunda configuracion -->
+                <!--segunda configuracion, se repiten los script para todas las configuraciones-->
                 <div class=" col-sm-5"><br>
                   <script>
                     $(document).ready(function() {
