@@ -23,6 +23,7 @@ Podemos parar y borrar todos los contenedores de una vez.
 ```
 
  Observacion: Es necesario ingresar al localhost phpmyadmin para crear la base de datos "php_login_database"
+ 
  Ingresamos desde el navegador con la url: localhost:80, al phpMyAdmin con la url:localhost:8000
 
  phpMyAdmin credenciales "usuario: root" "contraseña:test"
