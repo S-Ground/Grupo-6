@@ -22,12 +22,9 @@ Podemos parar y borrar todos los contenedores de una vez.
   docker-compose down
 ```
 
-#Observacion:
-Es necesario ingresar al localhost phpmyadmin para crear la base de datos "php_login_database"
-
+#Observacion: Es necesario ingresar al localhost phpmyadmin para crear la base de datos "php_login_database"
 
 #Ingresamos desde el navegador con la url: localhost:80
+#phpMyAdmin credenciales "usuario: root" "contraseña:test"
 
 #La aplicacion no cuenta con creador de cuentas ya que es de tipo servicio, para testear la aplicacion se recomienda hacer uso de las siguientes credenciales "Usuario: 20064705-k" "Contraseña:123"
-
-#phpMyAdmin credenciales "usuario: root" "contraseña:test"

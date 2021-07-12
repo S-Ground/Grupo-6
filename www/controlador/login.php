@@ -15,7 +15,7 @@
         <form class="login-container" action="loguear.php" method="post">
             <!-- a travez del chekRut comprobamos que se esta ingresando un rut valido-->
             <p>Usuario <input required oninput="checkRut(this)" type="text" placeholder="ingrese su rut" name="usuario"></p>
-            <p>Contraseña <input type="password" placeholder="ingrese su contraseña" name="clave"></p>
+            <p>Contraseña <input required type="password" placeholder="ingrese su contraseña" name="clave"></p>
             <!-- mensaje de error al quivocarse-->
             <div align="mensaje">
                 <?php if (isset($_GET['error']) && $_GET['error'] == 'true') : ?>

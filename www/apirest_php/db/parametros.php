@@ -1,17 +1,15 @@
-    <?php
-    include "conexion.php";
-//Obtener parametros para updates
-    function getParams($input){  
-        $filterParams = [];
-        foreach($input as $param => $value){
-            $filterParams[] = "$param=:$param";
-        }
-        return implode(", ", $filterParams);
+<?php
+include "conexion.php";
+function getParams($input){  
+    $filterParams = [];
+    foreach($input as $param => $value){
+        $filterParams[] = "$param=:$param";
     }
- //Asociar todos los parametros a un sql
-    function bindAllValues($statement, $params){
-        foreach($params as $param => $value){
-            $statement->bindValue(':'.$param, $value);
-        }
-        return $statement;
+    return implode(", ", $filterParams);
+}
+function bindAllValues($statement, $params){
+    foreach($params as $param => $value){
+        $statement->bindValue(':'.$param, $value);
     }
+    return $statement;
+}

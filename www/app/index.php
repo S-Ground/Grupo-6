@@ -30,7 +30,7 @@ $ultimo_clima = end($info_clima);
   <!-- Letras -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Iconos -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/06665d6bf0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/cards.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
@@ -90,7 +90,7 @@ $ultimo_clima = end($info_clima);
     <!--Paneles de informacion (humedad, temperatura, pH, Presion atmosferica, radiacion UV)-->
     <div class="row justify-content-center" ">
         <script>
-        //funcion para obtener el estado almacenado el el localstorage(true o false)
+          //Obtenemos el estado true o false para poder mostrar o ocultar las targetas de informacion
         $(document).ready(function() {
            if (window.localStorage.getItem("div1") != null) {
             var pb = window.localStorage.getItem("div1");
@@ -101,7 +101,6 @@ $ultimo_clima = end($info_clima);
       });
     </script>    
    <div class=" col-sm-5 div1"><br>
-        
         <div class=" card div1">
           <img class="align-items-center " src="./assets/img/humedad.png" style="width:20%">
           <h3>Humedad</h3>
@@ -109,7 +108,6 @@ $ultimo_clima = end($info_clima);
           <p id="humedad_dinamica"> <?php echo $ultimo_clima->humedad; ?> % </p>
 
           <?php
-          //realizamos un if para poder obtener los datos y compararlos de tal modo entregar informacion segun corresponda
             if ($ultimo_clima->humedad> 30) {
             echo "La humedad es muy alta, se le sugiere hacer cambios";
             }  else {
@@ -233,24 +231,23 @@ $ultimo_clima = end($info_clima);
   </div>
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <!--actualizado de datos en tiempo real -->
+  <!--actualizado de datos en tiempo real-->
   <script>
     $(document).ready(function() {
       console.log("ready!");
       //se establece un tiempo estimado para solicitar los datos
-      var interval = 1000; // 1000 = 1 segundos, 3000 = 3 segundos
+      var interval = 1000; // 1000 = 1 second, 3000 = 3 seconds
       function doAjax() {
         $.ajax({
           type: 'POST',
-          //traemos la api para obtener los datos
-          url: 'http://localhost/apirest_php/datos.php',
+          url: '../apirest_php/datos.php',
           data: {
             'lugar': 'home'
           },
           dataType: 'json',
 
           success: function(json) {
-            //capturamos la id y le asignamos el valor
+            //otorgramos la id para poder actualizar
             $('#temperatura_dinamica').html(json.temperatura + "°C");
             $('#humedad_dinamica').html(json.humedad + " %");
             $('#humedad_dinamica2').html(json.humedad + " %");
@@ -264,7 +261,7 @@ $ultimo_clima = end($info_clima);
           }
         });
       }
-   
+    // aca va el actualizar
     setTimeout(doAjax, interval);
     });
    

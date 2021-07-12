@@ -17,12 +17,10 @@ if (!isset($usuario)) {
 
 <head>
   <title>Sensores</title>
-  <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Letras -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Iconos -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/06665d6bf0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/cards.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
@@ -30,7 +28,9 @@ if (!isset($usuario)) {
   <link rel="stylesheet" href="./assets/css/bar.css">
   <!-- ocultar -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -94,24 +94,21 @@ if (!isset($usuario)) {
                 <!--Primera configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
-                    //Establecemos que una vez cargada la pagina, se ejececutar la siguiente funcion
+                    //iniciamos la funcion, obtenemos la id con la que trabajaremos para luego poder ocultar o mostrarla 
                     $(document).ready(function() {
-                      //Utilizamos localstorage para almacenar datos en el navegador, a su vez obtenemos la clase 
+                      //hacemos uso de localstorage para almacenar las funciones visuales del usuario
                       if (window.localStorage.getItem("div1") != null) {
-                        //almacenamos la clase en una variable para luego compararla
                         var pb = window.localStorage.getItem("div1");
                         if (pb == "true") {
-                          //si la comparacion es verdadera, oculta la clase
+                          //ocultamos o mostramos segun el estado del boton 
                           $(".div1").hide();
+
                         }
                       }
-                      //obtenemos la clase del boton 
+                      //con button1 
                       $("button1").click(function() {
-                        //Almacenamos la clase en una variable en conjunto del estado actual (true, false)
                         var v = $(".div1").is(":visible")
-                        //utilizamos la funcion fadeToggle para desvanecer los elementos
                         $(".div1").fadeToggle(500, "swing");
-                        //almacenamos en el localstorage el estado de la clase div1
                         window.localStorage.setItem("div1", v)
                       });
                     });
@@ -135,7 +132,7 @@ if (!isset($usuario)) {
                   </div>
                 </div>
                 <p class="div1"></p>
-                <!--segunda configuracion, se repiten los script para todas las configuraciones-->
+                <!--segunda configuracion -->
                 <div class=" col-sm-5"><br>
                   <script>
                     $(document).ready(function() {
@@ -307,9 +304,9 @@ if (!isset($usuario)) {
 
   <form class="login-container card" action="../controlador/actualizar.php" method="post">
             <!-- a travez del chekRut comprobamos que se esta ingresando un rut valido-->
-            <p><input class="form-control text-center"  type="text" placeholder="Nombre Organizacion" name="nombreOrg"></p>
+            <p>Nombre de organizacion<input required class="form-control text-center"  type="text" placeholder="Nombre Organizacion" name="nombreOrg"></p>
             <p>La contraseña de debe contener mayusculas y numeros. </p>          
-            <p><input class="form-control text-center" type="password" pattern="^(?=.[0-9])(?=.[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" maxlength="12" placeholder="Contraseña nueva" name="contraseña"></p>
+            <p><input required class="form-control text-center" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Contraseña nueva" name="contraseña"></p>
             <!-- mensaje de error al quivocarse-->
            
             <input class="btn btn-primary" type="submit" name="update" value="Modificar">

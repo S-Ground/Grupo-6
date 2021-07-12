@@ -30,7 +30,7 @@ if (!isset($usuario)) {
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" href="./assets/css/bar.css">
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/06665d6bf0.js" crossorigin="anonymous"></script>
   
 </head>
 
@@ -116,7 +116,7 @@ if (!isset($usuario)) {
             })
             
             //Llamamos a la api para poder obtener los datos 
-            let url =  'http://localhost/apirest_php/datos.php'
+            let url =  '../apirest_php/datos.php'
             fetch(url)
               .then(response => response.json())
               .then(datos => mostrar(datos))
@@ -141,7 +141,7 @@ if (!isset($usuario)) {
       </div>
     </div>
 
-    <!--Histograma 2 para los siguientes graficos se realizaron los mismos procedimientos -->
+    <!--Histograma 2-->
 
     <div class="container" style="max-width: 1300px; min-width: 400px;">
       <div class="card">
@@ -168,7 +168,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url1 = 'http://localhost/apirest_php/datos.php'
+            let url1 = '../apirest_php/datos.php'
             fetch(url1)
               .then(response => response.json())
               .then(datos1 => mostrar1(datos1))
@@ -217,7 +217,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url2 =  'http://localhost/apirest_php/datos.php'
+            let url2 =  '../apirest_php/datos.php'
             fetch(url2)
               .then(response => response.json())
               .then(datos2 => mostrar2(datos2))
@@ -270,7 +270,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url3 =  'http://localhost/apirest_php/datos.php'
+            let url3 =  '../apirest_php/datos.php'
             fetch(url3)
               .then(response => response.json())
               .then(datos3 => mostrar3(datos3))
@@ -320,7 +320,7 @@ if (!isset($usuario)) {
                 }
               }
             })
-            let url4 =  'http://localhost/apirest_php/datos.php'
+            let url4 =  '../apirest_php/datos.php'
             fetch(url4)
               .then(response => response.json())
               .then(datos4 => mostrar4(datos4))
